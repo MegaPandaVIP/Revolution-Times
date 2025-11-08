@@ -1,1 +1,161 @@
-Complete politics & rebellion page with navigation, 6 articles about Bastille storming live, Robespierre's shocking statements with top 10 list, guide to overthrowing tyranny with checklist, exclusive National Assembly leaks, Assembly says NO to king, and Marie Antoinette's child drama, plus comments section with revolutionary debates.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politics & Rebellion - Le Guillotine Gazette</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'revolutionary-red': '#8B0000',
+                        'royal-blue': '#000080',
+                        'parchment': '#F4E4C1',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-parchment">
+    <header class="bg-revolutionary-red text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <h1 class="text-5xl font-bold text-center mb-2">⚔️ Le Guillotine Gazette ⚔️</h1>
+            <p class="text-center text-xl italic">"All the News That's Fit to Behead"</p>
+        </div>
+    </header>
+
+    <nav class="bg-royal-blue text-white sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-4">
+            <ul class="flex flex-wrap justify-center space-x-2 py-3">
+                <li><a href="index.html" class="px-4 py-2 hover:bg-white hover:text-royal-blue rounded transition">🏠 HOME</a></li>
+                <li><a href="politics.html" class="px-4 py-2 hover:bg-white hover:text-royal-blue rounded transition font-bold">⚖️ POLITICS</a></li>
+                <li><a href="royals.html" class="px-4 py-2 hover:bg-white hover:text-royal-blue rounded transition">👑 ROYALS</a></li>
+                <li><a href="gossip.html" class="px-4 py-2 hover:bg-white hover:text-royal-blue rounded transition">💋 GOSSIP</a></li>
+                <li><a href="fashion.html" class="px-4 py-2 hover:bg-white hover:text-royal-blue rounded transition">👗 FASHION</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-8">
+        <h2 class="text-4xl font-bold mb-8 text-center text-revolutionary-red">⚖️ Politics & Rebellion</h2>
+
+        <div class="space-y-6">
+            <!-- Article 1 -->
+            <article class="bg-white rounded-lg shadow-lg p-6 border-l-4 border-red-700">
+                <div class="bg-red-700 text-white px-3 py-1 rounded inline-block mb-3 text-sm font-bold">LIVE</div>
+                <h3 class="text-3xl font-bold mb-4 text-red-700">🏰 Bastille Stormed: The Ultimate Prison Break!</h3>
+                <p class="text-gray-700 mb-4">In unprecedented scenes, thousands of Parisians stormed the Bastille fortress today, overwhelming the small garrison and freeing... well, seven prisoners. Despite the low headcount, revolutionaries are calling it a massive symbolic victory.</p>
+                <p class="text-gray-700 italic">"We expected more prisoners, but the symbolism is what counts!" - Revolutionary Leader</p>
+            </article>
+
+            <!-- Article 2 -->
+            <article class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-3xl font-bold mb-4 text-purple-700">🎤 Robespierre's Most Shocking Statements</h3>
+                <p class="text-gray-700 mb-4">Top 10 most controversial quotes from the Revolution's favorite public speaker:</p>
+                <ol class="list-decimal list-inside space-y-2 text-gray-700">
+                    <li>"Terror is nothing other than justice, prompt, severe, inflexible"</li>
+                    <li>"The secret of freedom lies in educating people"</li>
+                    <li>"To punish the oppressors of humanity is clemency"</li>
+                    <li>"Death is the beginning of immortality"</li>
+                    <li>"Any law which violates the inalienable rights of man is essentially unjust"</li>
+                    <li>"The Revolution is like Saturn - it devours its own children"</li>
+                    <li>"Atheism is aristocratic"</li>
+                    <li>"The government in a revolution is the despotism of liberty against tyranny"</li>
+                    <li>"I am neither the moderator nor the tributary of the people"</li>
+                    <li>"Crime butchers innocence to secure a throne"</li>
+                </ol>
+            </article>
+
+            <!-- Article 3 -->
+            <article class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-3xl font-bold mb-4 text-green-700">📋 Complete Guide to Overthrowing Tyranny</h3>
+                <p class="text-gray-700 mb-4">Your step-by-step revolutionary checklist:</p>
+                <div class="space-y-2">
+                    <div class="flex items-start">
+                        <span class="text-green-600 mr-2">✅</span>
+                        <span class="text-gray-700">Form an angry mob (minimum 1000 people)</span>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="text-green-600 mr-2">✅</span>
+                        <span class="text-gray-700">Write strongly-worded pamphlets</span>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="text-green-600 mr-2">✅</span>
+                        <span class="text-gray-700">Storm a symbolic building</span>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="text-green-600 mr-2">✅</span>
+                        <span class="text-gray-700">Declare a new government</span>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="text-green-600 mr-2">✅</span>
+                        <span class="text-gray-700">Execute the old government</span>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="text-yellow-600 mr-2">⚠️</span>
+                        <span class="text-gray-700">Try not to execute each other (HARD MODE)</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 4 -->
+            <article class="bg-white rounded-lg shadow-lg p-6 border-2 border-yellow-500">
+                <div class="bg-yellow-500 text-white px-3 py-1 rounded inline-block mb-3 text-sm font-bold">EXCLUSIVE LEAK</div>
+                <h3 class="text-3xl font-bold mb-4 text-yellow-700">📜 National Assembly Insider Leaks</h3>
+                <p class="text-gray-700 mb-4">Anonymous sources reveal what really happens behind closed doors:</p>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li>Half the delegates are still figuring out what "democracy" means</li>
+                    <li>Someone suggested reinstating the monarchy but got shouted down</li>
+                    <li>The coffee budget is suspiciously high</li>
+                    <li>Robespierre has practiced his speeches in the mirror (allegedly)</li>
+                    <li>No one can agree on the dress code</li>
+                </ul>
+            </article>
+
+            <!-- Article 5 -->
+            <article class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-3xl font-bold mb-4 text-blue-700">🚫 National Assembly Says NO to King</h3>
+                <p class="text-gray-700 mb-4">In a historic vote, the National Assembly has officially rejected the King's authority. Louis XVI was reportedly "shocked" that centuries of absolute monarchy couldn't convince a room full of angry commoners.</p>
+                <div class="bg-blue-50 border-l-4 border-blue-700 p-4 mt-4">
+                    <p class="text-blue-900 font-bold">"We're done with kings. They're so last season." - Assembly Member</p>
+                </div>
+            </article>
+
+            <!-- Article 6 -->
+            <article class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-3xl font-bold mb-4 text-pink-700">👶 Marie Antoinette's Child Separation Drama</h3>
+                <p class="text-gray-700 mb-4">The former Queen's children have been taken into state custody, leading to emotional scenes. Critics argue it's cruel, supporters say it's necessary. Either way, it's definitely tragic.</p>
+                <p class="text-gray-700 italic">Royal family separation continues to be one of the Revolution's most controversial policies.</p>
+            </article>
+        </div>
+
+        <!-- Comments Section -->
+        <section class="bg-white rounded-lg shadow-lg p-6 mt-8">
+            <h3 class="text-3xl font-bold mb-4 text-gray-800">💬 Revolutionary Debates</h3>
+            <form id="comment-form" class="mb-6">
+                <div class="mb-4">
+                    <label for="comment-name" class="block text-gray-700 font-bold mb-2">Name:</label>
+                    <input type="text" id="comment-name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-revolutionary-red" placeholder="Your Name" required>
+                </div>
+                <div class="mb-4">
+                    <label for="comment-text" class="block text-gray-700 font-bold mb-2">Comment:</label>
+                    <textarea id="comment-text" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-revolutionary-red" placeholder="Share your political thoughts..." required></textarea>
+                </div>
+                <button type="submit" class="bg-revolutionary-red text-white px-6 py-2 rounded-lg hover:bg-red-800 transition font-bold">Submit Comment</button>
+            </form>
+            <div id="comments-display" class="space-y-4"></div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-xs text-gray-500">© 1793 Le Guillotine Gazette. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="gazette-scripts.js"></script>
+</body>
+</html>

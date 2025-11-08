@@ -1,0 +1,16 @@
+# Keep the comments folder structure but not the files initially
+# comments/*.txt
+
+# Node modules if anyone tries to add them
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
