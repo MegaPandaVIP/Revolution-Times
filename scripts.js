@@ -1,16 +1,45 @@
-// Revolution Times - Interactive Features
+// Revolution Times - Fully Functional Interactive Features
 // January 21, 1793
+
+// Storage for user interactions
+let userData = {
+    likedArticles: new Set(),
+    likedComments: new Set(),
+    comments: []
+};
+
+// Load saved data from localStorage
+function loadUserData() {
+    const saved = localStorage.getItem('revolutionTimesData');
+    if (saved) {
+        const parsed = JSON.parse(saved);
+        userData.likedArticles = new Set(parsed.likedArticles || []);
+        userData.likedComments = new Set(parsed.likedComments || []);
+        userData.comments = parsed.comments || [];
+    }
+}
+
+// Save data to localStorage
+function saveUserData() {
+    const toSave = {
+        likedArticles: Array.from(userData.likedArticles),
+        likedComments: Array.from(userData.likedComments),
+        comments: userData.comments
+    };
+    localStorage.setItem('revolutionTimesData', JSON.stringify(toSave));
+}
 
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all features
+    loadUserData();
     initExecutionCounter();
+    initArticleLikes();
     initCommentSystem();
     initNewsletterForm();
     initPollSystem();
-    initArticleAnimations();
     initScrollEffects();
     initPopupAlerts();
+    restoreUserInteractions();
 });
 
 // Execution Counter Animation
@@ -18,20 +47,65 @@ function initExecutionCounter() {
     const counter = document.getElementById('execution-counter');
     if (!counter) return;
     
-    let count = 1;
+    let count = parseInt(counter.textContent) || 1;
     setInterval(() => {
-        if (Math.random() > 0.98) { // Random chance to increment
+        if (Math.random() > 0.97) {
             count++;
             counter.textContent = count;
-            counter.style.color = '#ff0000';
+            counter.style.transform = 'scale(1.2)';
             setTimeout(() => {
-                counter.style.color = '#dc143c';
-            }, 500);
+                counter.style.transform = 'scale(1)';
+            }, 300);
         }
     }, 5000);
 }
 
-// Comment System
+// Article Likes - Fully Functional
+function initArticleLikes() {
+    const likesElements = document.querySelectorAll('.engagement-bar .likes');
+    
+    likesElements.forEach((likeElement, index) => {
+        const articleId = `article-${index}`;
+        
+        // Mark as liked if already in userData
+        if (userData.likedArticles.has(articleId)) {
+            likeElement.classList.add('liked');
+        }
+        
+        likeElement.addEventListener('click', function(e) {
+            e.preventDefault();
+            const match = this.textContent.match(/[\d,]+/);
+            if (!match) return;
+            
+            let count = parseInt(match[0].replace(',', ''));
+            
+            if (userData.likedArticles.has(articleId)) {
+                // Unlike
+                count--;
+                userData.likedArticles.delete(articleId);
+                this.classList.remove('liked');
+                showNotification('הלייק הוסר');
+            } else {
+                // Like
+                count++;
+                userData.likedArticles.add(articleId);
+                this.classList.add('liked');
+                showNotification('תודה על הלייק! 💗');
+            }
+            
+            this.textContent = this.textContent.replace(/[\d,]+/, count.toLocaleString());
+            saveUserData();
+            
+            // Animation
+            this.style.transform = 'scale(1.3)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 200);
+        });
+    });
+}
+
+// Comment System - Fully Functional
 function initCommentSystem() {
     // Submit comment button
     const submitButtons = document.querySelectorAll('.submit-comment');
@@ -40,63 +114,35 @@ function initCommentSystem() {
             e.preventDefault();
             const form = this.closest('.comment-form');
             const textarea = form.querySelector('textarea');
+            const commentText = textarea.value.trim();
             
-            if (textarea.value.trim()) {
-                showNotification('תגובתך נשלחה לבדיקה של הועד למען ביטחון המהפכה... 🔍');
-                textarea.value = '';
+            if (commentText) {
+                // Create new comment
+                const newComment = {
+                    id: `comment-${Date.now()}`,
+                    author: 'אזרח_' + Math.floor(Math.random() * 10000),
+                    text: commentText,
+                    time: 'עכשיו',
+                    likes: 0,
+                    timestamp: Date.now()
+                };
                 
-                // Simulate comment approval after delay
-                setTimeout(() => {
-                    showNotification('תגובתך אושרה! (הפעם...)');
-                }, 2000);
+                userData.comments.push(newComment);
+                saveUserData();
+                
+                // Add comment to DOM
+                addCommentToDOM(newComment, form.nextElementSibling);
+                
+                textarea.value = '';
+                showNotification('תגובתך פורסמה בהצלחה! ✓');
             } else {
                 showNotification('נא לכתוב משהו לפני השליחה!');
             }
         });
     });
     
-    // Like buttons
-    const likeButtons = document.querySelectorAll('.like-btn');
-    likeButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const currentText = this.textContent;
-            const match = currentText.match(/[-]?\d+/);
-            if (match) {
-                let count = parseInt(match[0]);
-                count += Math.random() > 0.5 ? 1 : -1;
-                this.textContent = currentText.replace(/[-]?\d+/, count);
-                
-                // Animation
-                this.style.transform = 'scale(1.2)';
-                setTimeout(() => {
-                    this.style.transform = 'scale(1)';
-                }, 200);
-            }
-        });
-    });
-    
-    // Reply buttons
-    const replyButtons = document.querySelectorAll('.reply-btn');
-    replyButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            showNotification('תכונת התגובות בפיתוח... (אין לנו תקציב, זו מהפכה!)');
-        });
-    });
-    
-    // Report buttons
-    const reportButtons = document.querySelectorAll('.report-btn');
-    reportButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            if (confirm('האם אתה בטוח שברצונך לדווח לוועד ביטחון המהפכה?')) {
-                showNotification('הדיווח נשלח. הסוכנים בדרך... 🚨');
-                const comment = this.closest('.comment');
-                setTimeout(() => {
-                    comment.style.opacity = '0.3';
-                    comment.style.textDecoration = 'line-through';
-                }, 1000);
-            }
-        });
-    });
+    // Initialize existing comment buttons
+    initCommentButtons();
     
     // Load more comments
     const loadMoreButtons = document.querySelectorAll('.load-more-comments');
@@ -104,12 +150,160 @@ function initCommentSystem() {
         button.addEventListener('click', function() {
             this.textContent = 'טוען תגובות...';
             setTimeout(() => {
-                showNotification('אופס! כל התגובות האחרות צונזרו על ידי הממשלה. 🙊');
-                this.textContent = 'אין עוד תגובות זמינות';
+                showNotification('אלו כל התגובות הזמינות כרגע');
+                this.textContent = 'אין עוד תגובות';
                 this.disabled = true;
-                this.style.background = '#999';
+                this.style.opacity = '0.6';
             }, 1000);
         });
+    });
+}
+
+// Initialize comment action buttons
+function initCommentButtons() {
+    // Like buttons
+    const likeButtons = document.querySelectorAll('.comment-actions .like-btn');
+    likeButtons.forEach((button, index) => {
+        const commentId = `existing-comment-${index}`;
+        
+        // Restore liked state
+        if (userData.likedComments.has(commentId)) {
+            button.classList.add('liked');
+        }
+        
+        button.addEventListener('click', function(e) {
+            e.stopPropagation();
+            handleCommentLike(this, commentId);
+        });
+    });
+    
+    // Reply buttons
+    const replyButtons = document.querySelectorAll('.reply-btn');
+    replyButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const commentText = this.closest('.comment').querySelector('.comment-text').textContent;
+            const commenterName = this.closest('.comment').querySelector('.commenter-name').textContent;
+            
+            // Find nearest comment form
+            const section = this.closest('.comments-section');
+            const textarea = section.querySelector('textarea');
+            if (textarea) {
+                textarea.value = `תגובה ל-${commenterName}: `;
+                textarea.focus();
+                textarea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        });
+    });
+    
+    // Report buttons
+    const reportButtons = document.querySelectorAll('.report-btn');
+    reportButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (confirm('האם אתה בטוח שברצונך לדווח על תגובה זו?')) {
+                showNotification('הדיווח נשלח לצוות המנהלים 🚨');
+                const comment = this.closest('.comment');
+                comment.style.opacity = '0.5';
+                comment.style.pointerEvents = 'none';
+                setTimeout(() => {
+                    const badge = document.createElement('span');
+                    badge.className = 'warning-badge';
+                    badge.textContent = '⚠️ דווח';
+                    comment.querySelector('.comment-header').appendChild(badge);
+                }, 500);
+            }
+        });
+    });
+}
+
+// Handle comment like
+function handleCommentLike(button, commentId) {
+    const match = button.textContent.match(/[-]?\d+/);
+    if (!match) return;
+    
+    let count = parseInt(match[0]);
+    
+    if (userData.likedComments.has(commentId)) {
+        // Unlike
+        count--;
+        userData.likedComments.delete(commentId);
+        button.classList.remove('liked');
+    } else {
+        // Like
+        count++;
+        userData.likedComments.add(commentId);
+        button.classList.add('liked');
+    }
+    
+    button.textContent = button.textContent.replace(/[-]?\d+/, count);
+    saveUserData();
+    
+    // Animation
+    button.style.transform = 'scale(1.2)';
+    setTimeout(() => {
+        button.style.transform = 'scale(1)';
+    }, 200);
+}
+
+// Add comment to DOM
+function addCommentToDOM(comment, commentsList) {
+    const commentElement = document.createElement('div');
+    commentElement.className = 'comment';
+    commentElement.innerHTML = `
+        <div class="comment-header">
+            <span class="commenter-name">${comment.author}</span>
+            <span class="comment-time">${comment.time}</span>
+            <span class="warning-badge" style="background: #00a86b;">✓ חדש</span>
+        </div>
+        <p class="comment-text">${comment.text}</p>
+        <div class="comment-actions">
+            <button class="like-btn" data-comment-id="${comment.id}">👍 ${comment.likes}</button>
+            <button class="reply-btn">↩️ השב</button>
+        </div>
+    `;
+    
+    // Insert at the beginning of comments list
+    commentsList.insertBefore(commentElement, commentsList.firstChild);
+    
+    // Initialize buttons for new comment
+    const likeBtn = commentElement.querySelector('.like-btn');
+    likeBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        handleCommentLike(this, comment.id);
+    });
+    
+    const replyBtn = commentElement.querySelector('.reply-btn');
+    replyBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const section = this.closest('.comments-section');
+        const textarea = section.querySelector('textarea');
+        if (textarea) {
+            textarea.value = `תגובה ל-${comment.author}: `;
+            textarea.focus();
+        }
+    });
+    
+    // Highlight animation
+    commentElement.style.animation = 'fadeIn 0.5s ease-out';
+}
+
+// Restore user interactions on page load
+function restoreUserInteractions() {
+    // Restore article likes
+    document.querySelectorAll('.engagement-bar .likes').forEach((element, index) => {
+        const articleId = `article-${index}`;
+        if (userData.likedArticles.has(articleId)) {
+            element.classList.add('liked');
+        }
+    });
+    
+    // Restore comment likes
+    document.querySelectorAll('.comment-actions .like-btn').forEach((button, index) => {
+        const commentId = `existing-comment-${index}`;
+        if (userData.likedComments.has(commentId)) {
+            button.classList.add('liked');
+        }
     });
 }
 
@@ -129,13 +323,8 @@ function initNewsletterForm() {
             });
             
             if (allFilled) {
-                showNotification('תודה על ההרשמה! העיתון יגיע אליך מדי בוקר (אם הדואר לא יוצא להורג...)');
+                showNotification('תודה על ההרשמה! העיתון יגיע אליך מדי בוקר ✓');
                 inputs.forEach(input => input.value = '');
-                
-                // Show suspicious message
-                setTimeout(() => {
-                    showNotification('פרטיך נשלחו גם לוועד ביטחון המהפכה. לביטחונך, כמובן. 👀');
-                }, 2000);
             } else {
                 showNotification('נא למלא את כל השדות!');
             }
@@ -153,7 +342,7 @@ function initPollSystem() {
             
             if (selectedOption) {
                 const optionText = selectedOption.nextElementSibling.querySelector('.poll-text').textContent;
-                showNotification(`הצבעתך נרשמה: ${optionText} - הועד מעריך את שיתוף הפעולה שלך!`);
+                showNotification(`הצבעתך נרשמה: ${optionText} ✓`);
                 
                 // Update counter
                 const disclaimer = pollSection.querySelector('.poll-disclaimer');
@@ -168,7 +357,7 @@ function initPollSystem() {
                 
                 this.textContent = 'הצבעה נרשמה!';
                 this.disabled = true;
-                this.style.background = '#32cd32';
+                this.style.opacity = '0.7';
             } else {
                 showNotification('נא לבחור אפשרות לפני ההצבעה!');
             }
@@ -176,194 +365,69 @@ function initPollSystem() {
     });
 }
 
-// Article Animations
-function initArticleAnimations() {
-    const articles = document.querySelectorAll('.article-card, .featured-article');
-    
-    articles.forEach(article => {
-        // Hover effect for engagement counters
-        article.addEventListener('mouseenter', function() {
-            const likes = this.querySelector('.likes');
-            if (likes && Math.random() > 0.7) {
-                const match = likes.textContent.match(/\d+/);
-                if (match) {
-                    const count = parseInt(match[0]);
-                    likes.textContent = likes.textContent.replace(/\d+/, count + Math.floor(Math.random() * 5));
-                }
-            }
-        });
-        
-        // Click tracking
-        const readMoreLink = article.querySelector('.read-more');
-        if (readMoreLink) {
-            readMoreLink.addEventListener('click', function(e) {
-                e.preventDefault();
-                const views = article.querySelector('.views');
-                if (views) {
-                    const match = views.textContent.match(/[\d,]+/);
-                    if (match) {
-                        let count = parseInt(match[0].replace(',', ''));
-                        count += Math.floor(Math.random() * 10) + 1;
-                        views.textContent = views.textContent.replace(/[\d,]+/, count.toLocaleString());
-                    }
-                }
-                showNotification('המאמר המלא זמין רק למנויים פרימיום! (שלא קיימים עדיין...)');
-            });
-        }
-    });
-}
-
 // Scroll Effects
 function initScrollEffects() {
     let lastScrollTop = 0;
-    let ticking = false;
     
     window.addEventListener('scroll', function() {
-        lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        if (!ticking) {
-            window.requestAnimationFrame(function() {
-                handleScroll(lastScrollTop);
-                ticking = false;
-            });
-            ticking = true;
-        }
-    });
-    
-    function handleScroll(scrollTop) {
-        // Parallax effect for header
-        const header = document.querySelector('.main-header');
-        if (header) {
-            header.style.transform = `translateY(${scrollTop * 0.3}px)`;
-            header.style.opacity = 1 - (scrollTop / 500);
-        }
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
         // Fade in articles on scroll
         const articles = document.querySelectorAll('.article-card');
         articles.forEach(article => {
             const rect = article.getBoundingClientRect();
-            if (rect.top < window.innerHeight * 0.8) {
+            if (rect.top < window.innerHeight * 0.9) {
                 article.style.opacity = '1';
-                article.style.transform = 'translateY(0)';
             }
         });
-    }
+        
+        lastScrollTop = scrollTop;
+    });
 }
 
-// Popup Alerts (Revolutionary Notifications)
+// Popup Alerts
 function initPopupAlerts() {
-    const messages = [
-        'אזהרה: המלוכה עשויה לחזור! היו ערניים!',
-        'עדכון: מחירי הלחם עלו שוב ב-15%',
-        'שמועה: רובספייר מתכנן טיהור נוסף',
-        'חדשות: אוסטריה מתקרבת לגבול!',
-        'התראה: נמצאו מרגלים בפריז',
-        'עדכון חם: מארי אנטואנט ביקשה יין יקר בכלא'
-    ];
-    
-    // Show random alert every 30 seconds
-    setInterval(() => {
-        if (Math.random() > 0.7) {
-            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-            showUrgentAlert(randomMessage);
-        }
-    }, 30000);
-    
-    // Show initial alert after 5 seconds
+    // Show welcome alert after 3 seconds
     setTimeout(() => {
-        showUrgentAlert('ברוכים הבאים לעיתון המהפכה! העיתון היחיד שנותר (האחרים הוצאו להורג)');
-    }, 5000);
+        showNotification('ברוכים הבאים לעיתון המהפכה! 🗞️');
+    }, 3000);
 }
 
-// Utility Functions
+// Utility: Show Notification
 function showNotification(message) {
-    // Create notification element
+    // Remove existing notifications
+    const existing = document.querySelectorAll('.toast-notification');
+    existing.forEach(n => n.remove());
+    
     const notification = document.createElement('div');
+    notification.className = 'toast-notification';
     notification.textContent = message;
     notification.style.cssText = `
         position: fixed;
-        bottom: 20px;
+        bottom: 30px;
         left: 50%;
         transform: translateX(-50%);
-        background: #1a1a2e;
-        color: #f4e4c1;
+        background: #1a1a1a;
+        color: white;
         padding: 15px 30px;
-        border: 2px solid #d4af37;
-        border-radius: 5px;
+        border-radius: 4px;
         z-index: 10000;
-        max-width: 80%;
-        text-align: center;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         animation: slideUp 0.3s ease-out;
+        max-width: 90%;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 600;
     `;
     
     document.body.appendChild(notification);
     
-    // Remove after 3 seconds
     setTimeout(() => {
         notification.style.animation = 'slideDown 0.3s ease-out';
         setTimeout(() => {
-            document.body.removeChild(notification);
+            notification.remove();
         }, 300);
     }, 3000);
-}
-
-function showUrgentAlert(message) {
-    // Create urgent alert overlay
-    const overlay = document.createElement('div');
-    overlay.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0,0,0,0.8);
-        z-index: 9999;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        animation: fadeIn 0.3s ease-out;
-    `;
-    
-    const alertBox = document.createElement('div');
-    alertBox.style.cssText = `
-        background: linear-gradient(135deg, #8b0000 0%, #dc143c 100%);
-        color: white;
-        padding: 30px;
-        border: 3px solid #ffd700;
-        max-width: 500px;
-        text-align: center;
-        border-radius: 5px;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-    `;
-    
-    alertBox.innerHTML = `
-        <h3 style="font-size: 24px; margin-bottom: 15px;">⚡ התראה דחופה ⚡</h3>
-        <p style="font-size: 18px; line-height: 1.6; margin-bottom: 20px;">${message}</p>
-        <button style="background: #ffd700; color: #8b0000; border: none; padding: 10px 30px; font-size: 16px; font-weight: bold; cursor: pointer; border-radius: 3px;">הבנתי</button>
-    `;
-    
-    overlay.appendChild(alertBox);
-    document.body.appendChild(overlay);
-    
-    // Close on button click
-    const closeButton = alertBox.querySelector('button');
-    closeButton.addEventListener('click', () => {
-        overlay.style.animation = 'fadeOut 0.3s ease-out';
-        setTimeout(() => {
-            document.body.removeChild(overlay);
-        }, 300);
-    });
-    
-    // Close on overlay click
-    overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) {
-            overlay.style.animation = 'fadeOut 0.3s ease-out';
-            setTimeout(() => {
-                document.body.removeChild(overlay);
-            }, 300);
-        }
-    });
 }
 
 // Add CSS animations
@@ -392,32 +456,19 @@ style.textContent = `
     }
     
     @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-    
-    @keyframes fadeOut {
-        from { opacity: 1; }
-        to { opacity: 0; }
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 `;
 document.head.appendChild(style);
 
-// Easter Egg - Konami Code
-let konamiCode = [];
-const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
-
-document.addEventListener('keydown', function(e) {
-    konamiCode.push(e.key);
-    konamiCode = konamiCode.slice(-10);
-    
-    if (konamiCode.join(',') === konamiSequence.join(',')) {
-        showUrgentAlert('🎉 מצאת את הקוד הסודי! מארי אנטואנט שולחת לך עוגה וירטואלית! 🎂');
-        konamiCode = [];
-    }
-});
-
-// Console Easter Egg
-console.log('%c חירות! שוויון! אחווה! ', 'background: #1a1a2e; color: #d4af37; font-size: 20px; padding: 10px;');
-console.log('%c ברוכים הבאים לעיתון המהפכה - 21 בינואר 1793 ', 'background: #8b0000; color: white; font-size: 14px; padding: 5px;');
-console.log('טיפ: נסו את קוד קונאמי (↑↑↓↓←→←→BA) להפתעה מיוחדת!');
+// Console message
+console.log('%c חירות! שוויון! אחווה! ', 'background: #c80000; color: white; font-size: 18px; padding: 10px; font-weight: bold;');
+console.log('%c עיתון המהפכה - 21 בינואר 1793 ', 'background: #1a1a1a; color: white; font-size: 14px; padding: 5px;');
+console.log('כל הפיצ\'רים האינטראקטיביים עובדים! נסו ללחוץ על הלייקים והתגובות.');
