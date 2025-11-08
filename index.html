@@ -1,1 +1,243 @@
-The home page with header, navigation menu to all 8 pages, breaking banner, 6 featured article cards (breaking news about Louis XVI execution, Marie Antoinette cake scandal, Bastille storming, palace love triangle, Robespierre time traveler conspiracy, guillotine self-care opinion), newsletter signup section, and footer with guillotine counter.
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>עיתון המהפכה - 21 בינואר 1793</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="header-decoration">✦ ✦ ✦</div>
+            <h1 class="site-title">עיתון המהפכה</h1>
+            <div class="site-subtitle">La Gazette de la Révolution</div>
+            <div class="date-banner">היום, 21 בינואר 1793 | כ"ט בטבת תקנ"ג</div>
+            <div class="header-decoration">✦ ✦ ✦</div>
+        </header>
+
+        <!-- Breaking News Banner -->
+        <div class="breaking-banner">
+            <span class="breaking-label">⚡ חדשות מזעזעות ⚡</span>
+            <span class="breaking-text">המלך לואי ה-16 הוצא להורג הבוקר בגיליוטינה בפריז!</span>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html" class="active">בית</a></li>
+                <li><a href="world.html">עולם</a></li>
+                <li><a href="travel.html">טיולים</a></li>
+                <li><a href="gossip.html">רכילות</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="content-grid">
+            <!-- Featured Article -->
+            <article class="featured-article">
+                <div class="article-badge urgent">דחוף ביותר</div>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400'%3E%3Crect fill='%23222' width='800' height='400'/%3E%3Ctext x='400' y='200' font-size='40' fill='%23fff' text-anchor='middle'%3E⚔️ גיליוטינה ⚔️%3C/text%3E%3C/svg%3E" alt="גיליוטינה" class="article-image">
+                <h2>המלך הוצא להורג! פרטים מזעזעים מכיכר המהפכה</h2>
+                <div class="article-meta">
+                    <span class="author">מאת: ז'אן-פול מרא</span>
+                    <span class="views">👁️ 15,847 צפיות</span>
+                    <span class="time">לפני 2 שעות</span>
+                </div>
+                <p class="article-excerpt">
+                    בשעה 10:22 בבוקר, ראשו של לואי קאפה (לשעבר מלך צרפת) נפל לסל. אזרחי פריז התקבצו באלפים לצפות בצדק המהפכתי. 
+                    האם זה סוף המלוכה? האם מארי אנטואנט הבאה בתור? לחצו כאן למידע מלא!
+                </p>
+                <a href="#article1" class="read-more">קרא עוד »</a>
+                <div class="engagement-bar">
+                    <span class="likes">❤️ 2,341</span>
+                    <span class="comments">💬 456 תגובות</span>
+                    <span class="shares">🔄 789 שיתופים</span>
+                </div>
+            </article>
+
+            <!-- Article Grid -->
+            <article class="article-card">
+                <div class="article-badge hot">🔥 חם</div>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect fill='%23444' width='400' height='250'/%3E%3Ctext x='200' y='125' font-size='30' fill='%23fff' text-anchor='middle'%3E👑 ארמון 👑%3C/text%3E%3C/svg%3E" alt="ארמון ורסאי" class="article-image">
+                <h3>מארי אנטואנט בהלם! "לא האמנתי שיעיזו"</h3>
+                <p class="article-excerpt">מקורות בכלא הטמפל מדווחים שהמלכה לשעבר קרסה לאחר השמועה. האם היא הבאה בתור?</p>
+                <a href="#article2" class="read-more">קרא עוד »</a>
+                <div class="engagement-bar">
+                    <span class="likes">❤️ 1,876</span>
+                    <span class="comments">💬 234</span>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="article-badge trending">⬆️ טרנדינג</div>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect fill='%23333' width='400' height='250'/%3E%3Ctext x='200' y='125' font-size='30' fill='%23fff' text-anchor='middle'%3E🍞 לחם 🍞%3C/text%3E%3C/svg%3E" alt="לחם" class="article-image">
+                <h3>מחירי הלחם זינקו ב-300%! האזרחים זועמים</h3>
+                <p class="article-excerpt">למרות המהפכה, מצב האוכל רק מחמיר. האם ההוצאה להורג תפתור את משבר הלחם? לחצו לגילוי!</p>
+                <a href="#article3" class="read-more">קרא עוד »</a>
+                <div class="engagement-bar">
+                    <span class="likes">❤️ 3,421</span>
+                    <span class="comments">💬 891</span>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="article-badge shocking">⚡ מזעזע</div>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect fill='%23555' width='400' height='250'/%3E%3Ctext x='200' y='125' font-size='25' fill='%23fff' text-anchor='middle'%3E🎭 רובספייר 🎭%3C/text%3E%3C/svg%3E" alt="רובספייר" class="article-image">
+                <h3>רובספייר: "זה רק ההתחלה!" - רשימת החשודים הבאים</h3>
+                <p class="article-excerpt">מנהיג היעקוביניים מבטיח טיהור נוסף. עשרות אריסטוקרטים רועדים מפחד. מי על הרשימה?</p>
+                <a href="#article4" class="read-more">קרא עוד »</a>
+                <div class="engagement-bar">
+                    <span class="likes">❤️ 1,234</span>
+                    <span class="comments">💬 567</span>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="article-badge exclusive">⭐ בלעדי</div>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect fill='%23666' width='400' height='250'/%3E%3Ctext x='200' y='125' font-size='30' fill='%23fff' text-anchor='middle'%3E🗡️ באסטיליה 🗡️%3C/text%3E%3C/svg%3E" alt="באסטיליה" class="article-image">
+                <h3>ותיק מכיבוש הבסטיליה חושף: "זה היה מתוכנן מראש!"</h3>
+                <p class="article-excerpt">ראיון בלעדי עם לוחם חירות שהיה שם. אתם לא תאמינו מה באמת קרה ב-14 ביולי!</p>
+                <a href="#article5" class="read-more">קרא עוד »</a>
+                <div class="engagement-bar">
+                    <span class="likes">❤️ 987</span>
+                    <span class="comments">💬 123</span>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="article-badge opinion">📝 דעה</div>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect fill='%23777' width='400' height='250'/%3E%3Ctext x='200' y='125' font-size='30' fill='%23fff' text-anchor='middle'%3E✊ חירות ✊%3C/text%3E%3C/svg%3E" alt="חירות" class="article-image">
+                <h3>דעה: האם הלכנו רחוק מדי? תגובות מעורבות מהציבור</h3>
+                <p class="article-excerpt">בעוד שחלק חוגגים, אחרים מפחדים מהעתיד. מומחה פוליטי מנתח את המצב המורכב.</p>
+                <a href="#article6" class="read-more">קרא עוד »</a>
+                <div class="engagement-bar">
+                    <span class="likes">❤️ 654</span>
+                    <span class="comments">💬 432</span>
+                </div>
+            </article>
+        </main>
+
+        <!-- Comments Section -->
+        <section class="comments-section">
+            <h2>תגובות הקוראים (237)</h2>
+            <div class="comment-form">
+                <textarea placeholder="שתף את דעתך על אירועי היום... (זהירות! הממשלה עשויה לקרוא)" rows="3"></textarea>
+                <button class="submit-comment">פרסם תגובה</button>
+            </div>
+            
+            <div class="comments-list">
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="commenter-name">אזרח חירות123</span>
+                        <span class="comment-time">לפני 15 דקות</span>
+                    </div>
+                    <p class="comment-text">סוף סוף צדק! המלוכה הרקובה נגמרה. יחי העם!</p>
+                    <div class="comment-actions">
+                        <button class="like-btn">👍 45</button>
+                        <button class="reply-btn">↩️ השב</button>
+                    </div>
+                </div>
+
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="commenter-name">חושש_מפריז</span>
+                        <span class="comment-time">לפני 23 דקות</span>
+                    </div>
+                    <p class="comment-text">אני מפחד... לאן זה יוביל? מי הבא? האם אף אחד לא בטוח יותר?</p>
+                    <div class="comment-actions">
+                        <button class="like-btn">👍 12</button>
+                        <button class="reply-btn">↩️ השב</button>
+                    </div>
+                </div>
+
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="commenter-name">רובספייר_פאן</span>
+                        <span class="comment-time">לפני 31 דקות</span>
+                    </div>
+                    <p class="comment-text">רובספייר צודק! צריך לטהר את צרפת מכל הבוגדים. המהפכה חייבת להימשך!</p>
+                    <div class="comment-actions">
+                        <button class="like-btn">👍 67</button>
+                        <button class="reply-btn">↩️ השב</button>
+                    </div>
+                </div>
+
+                <div class="comment highlighted">
+                    <div class="comment-header">
+                        <span class="commenter-name">מארי_תומכת_מלכות</span>
+                        <span class="comment-time">לפני 45 דקות</span>
+                        <span class="warning-badge">⚠️ תגובה חשודה</span>
+                    </div>
+                    <p class="comment-text">זה פשע! המלך היה צדיק! אתם תשלמו על זה!</p>
+                    <div class="comment-actions">
+                        <button class="like-btn">👎 -89</button>
+                        <button class="reply-btn">↩️ השב</button>
+                        <button class="report-btn">🚨 דווח</button>
+                    </div>
+                </div>
+
+                <div class="comment">
+                    <div class="comment-header">
+                        <span class="commenter-name">פילוסוף_רחוב</span>
+                        <span class="comment-time">לפני שעה</span>
+                    </div>
+                    <p class="comment-text">רוסו צדק - העם הוא הריבון. היום הוכחנו זאת. חירות, שוויון, אחווה!</p>
+                    <div class="comment-actions">
+                        <button class="like-btn">👍 156</button>
+                        <button class="reply-btn">↩️ השב</button>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="load-more-comments">טען עוד תגובות...</button>
+        </section>
+
+        <!-- Newsletter Signup -->
+        <section class="newsletter-section">
+            <h2>📜 הירשם לעיתון היומי שלנו</h2>
+            <p>קבל את החדשות המהפכתיות ישירות לדלת ביתך כל בוקר!</p>
+            <form class="newsletter-form">
+                <input type="text" placeholder="שמך המלא" required>
+                <input type="text" placeholder="כתובת בפריז" required>
+                <button type="submit">הירשם עכשיו</button>
+            </form>
+            <p class="newsletter-disclaimer">* אנו מבטיחים לא לשתף את הפרטים שלך עם הממשלה (אולי)</p>
+        </section>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="footer-decoration">✦ ✦ ✦</div>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>אודות העיתון</h3>
+                    <p>עיתון המהפכה - מביא לכם את החדשות הכי חמות מפריז ומסביב לעולם מאז 1789.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>קטגוריות</h3>
+                    <ul>
+                        <li><a href="index.html">בית</a></li>
+                        <li><a href="world.html">חדשות עולם</a></li>
+                        <li><a href="travel.html">טיולים</a></li>
+                        <li><a href="gossip.html">רכילות חצר</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>מידע</h3>
+                    <p>📍 כתובת: רחוב הבסטיליה 14, פריז</p>
+                    <p>📅 היום: 21 בינואר 1793</p>
+                    <p>⚔️ מספר הוצאות להורג השנה: <span id="execution-counter">1</span></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 1793 עיתון המהפכה | כל הזכויות שמורות (אם יישארו לנו ראשים)</p>
+                <p class="motto">חירות • שוויון • אחווה</p>
+            </div>
+            <div class="footer-decoration">✦ ✦ ✦</div>
+        </footer>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
