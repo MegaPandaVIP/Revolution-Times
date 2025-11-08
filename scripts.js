@@ -246,34 +246,67 @@ function handleCommentLike(button, commentId) {
     }, 200);
 }
 
-// Add comment to DOM
+// Add comment to DOM (with XSS protection)
 function addCommentToDOM(comment, commentsList) {
     const commentElement = document.createElement('div');
     commentElement.className = 'comment';
-    commentElement.innerHTML = `
-        <div class="comment-header">
-            <span class="commenter-name">${comment.author}</span>
-            <span class="comment-time">${comment.time}</span>
-            <span class="warning-badge" style="background: #00a86b;">✓ חדש</span>
-        </div>
-        <p class="comment-text">${comment.text}</p>
-        <div class="comment-actions">
-            <button class="like-btn" data-comment-id="${comment.id}">👍 ${comment.likes}</button>
-            <button class="reply-btn">↩️ השב</button>
-        </div>
-    `;
+    
+    // Create elements safely without innerHTML for user content
+    const commentHeader = document.createElement('div');
+    commentHeader.className = 'comment-header';
+    
+    const commenterName = document.createElement('span');
+    commenterName.className = 'commenter-name';
+    commenterName.textContent = comment.author; // Safe - uses textContent
+    
+    const commentTime = document.createElement('span');
+    commentTime.className = 'comment-time';
+    commentTime.textContent = comment.time;
+    
+    const badge = document.createElement('span');
+    badge.className = 'warning-badge';
+    badge.style.background = '#00a86b';
+    badge.textContent = '✓ חדש';
+    
+    commentHeader.appendChild(commenterName);
+    commentHeader.appendChild(commentTime);
+    commentHeader.appendChild(badge);
+    
+    const commentText = document.createElement('p');
+    commentText.className = 'comment-text';
+    commentText.textContent = comment.text; // Safe - uses textContent
+    
+    const commentActions = document.createElement('div');
+    commentActions.className = 'comment-actions';
+    
+    const likeBtn = document.createElement('button');
+    likeBtn.className = 'like-btn';
+    likeBtn.setAttribute('data-comment-id', comment.id);
+    likeBtn.textContent = `👍 ${comment.likes}`;
+    
+    const replyBtn = document.createElement('button');
+    replyBtn.className = 'reply-btn';
+    replyBtn.textContent = '↩️ השב';
+    
+    commentActions.appendChild(likeBtn);
+    commentActions.appendChild(replyBtn);
+    
+    commentElement.appendChild(commentHeader);
+    commentElement.appendChild(commentText);
+    commentElement.appendChild(commentActions);
+    commentElement.appendChild(commentHeader);
+    commentElement.appendChild(commentText);
+    commentElement.appendChild(commentActions);
     
     // Insert at the beginning of comments list
     commentsList.insertBefore(commentElement, commentsList.firstChild);
     
     // Initialize buttons for new comment
-    const likeBtn = commentElement.querySelector('.like-btn');
     likeBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         handleCommentLike(this, comment.id);
     });
     
-    const replyBtn = commentElement.querySelector('.reply-btn');
     replyBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         const section = this.closest('.comments-section');
