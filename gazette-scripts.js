@@ -5,7 +5,7 @@ const GITHUB_CONFIG = {
     owner: 'MegaPandaVIP',
     repo: 'Revolution-Times',
     branch: 'main',
-    token: '', // Add your GitHub personal access token here
+    token: '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', // Add your GitHub personal access token here
 };
 
 // Update current time - FIXED to January 21, 1793
