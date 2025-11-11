@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fashion & Lifestyle - Le Guillotine Gazette</title>
+    <title>אופנה וסגנון חיים - עיתון הגיליוטינה</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -22,132 +22,193 @@
 <body class="bg-parchment">
     <header class="bg-revolutionary-red text-white shadow-lg">
         <div class="container mx-auto px-4 py-6">
-            <h1 class="text-5xl font-bold text-center mb-2">⚔️ Le Guillotine Gazette ⚔️</h1>
-            <p class="text-center text-xl italic">"All the News That's Fit to Behead"</p>
+            <h1 class="text-5xl font-bold text-center mb-2">⚔️ עיתון הגיליוטינה ⚔️</h1>
+            <p class="text-center text-xl italic">"מסובבים ועורפים ראשים מאז 1759"</p>
         </div>
     </header>
 
     <nav class="bg-royal-blue text-white sticky top-0 z-50 shadow-md">
         <div class="container mx-auto px-4">
-            <ul class="flex flex-wrap justify-center space-x-2 py-3">
-                <li><a href="index.html" class="px-4 py-2 hover:bg-white hover:text-royal-blue rounded transition">🏠 HOME</a></li>
-                <li><a href="politics.html" class="px-4 py-2 hover:bg-white hover:text-royal-blue rounded transition">⚖️ POLITICS</a></li>
-                <li><a href="royals.html" class="px-4 py-2 hover:bg-white hover:text-royal-blue rounded transition">👑 ROYALS</a></li>
-                <li><a href="gossip.html" class="px-4 py-2 hover:bg-white hover:text-royal-blue rounded transition">💋 GOSSIP</a></li>
-                <li><a href="fashion.html" class="px-4 py-2 hover:bg-white hover:text-royal-blue rounded transition font-bold">👗 FASHION</a></li>
+            <ul class="flex flex-wrap justify-center space-x-reverse space-x-2 py-3">
+                <li><a href="index.html" class="px-4 py-2 hover:bg-white hover:text-royal-blue rounded transition">🏠 בית</a></li>
+                <li><a href="politics.html" class="px-4 py-2 hover:bg-white hover:text-royal-blue rounded transition">⚖️ פוליטיקה</a></li>
+                <li><a href="royals.html" class="px-4 py-2 hover:bg-white hover:text-royal-blue rounded transition">👑 בית המלוכה</a></li>
+                <li><a href="gossip.html" class="px-4 py-2 hover:bg-white hover:text-royal-blue rounded transition">💋 רכילות</a></li>
+                <li><a href="fashion.html" class="px-4 py-2 hover:bg-white hover:text-royal-blue rounded transition font-bold">👗 אופנה</a></li>
             </ul>
         </div>
     </nav>
 
     <main class="container mx-auto px-4 py-8">
-        <h2 class="text-4xl font-bold mb-8 text-center text-revolutionary-red">👗 Fashion & Lifestyle</h2>
+        <h2 class="text-4xl font-bold mb-8 text-center text-purple-700">👗 אופנה וסגנון חיים</h2>
 
         <div class="space-y-6">
             <!-- Article 1 -->
-            <article class="bg-white rounded-lg shadow-lg p-6">
-                <h3 class="text-3xl font-bold mb-4 text-pink-700">10 Ways to Accessorize Your Guillotine Look This Season</h3>
-                <p class="text-gray-700 mb-4">Death has never been more fashionable! Here are our top tips:</p>
-                <ul class="list-disc list-inside space-y-2 text-gray-700 mb-4">
-                    <li><strong>Red Scarf:</strong> The ultimate statement piece. Blood-resistant fabric recommended.</li>
-                    <li><strong>White Dress:</strong> Classic, elegant, and hides absolutely nothing. Perfect for your final moment.</li>
-                    <li><strong>Short Hair:</strong> Less to grab, more practical. Plus it's very on-trend!</li>
-                    <li><strong>Minimal Jewelry:</strong> Keep it simple. Anything fancy might be confiscated anyway.</li>
-                    <li><strong>Comfortable Shoes:</strong> You'll be walking to the scaffold. Make it count.</li>
-                </ul>
+            <article class="bg-white rounded-lg shadow-lg p-6 border-t-4 border-purple-500">
+                <div class="bg-purple-600 text-white px-3 py-1 rounded inline-block mb-3 text-sm font-bold">טרנד חם</div>
+                <h3 class="text-3xl font-bold mb-4 text-purple-700">🎀 פאות ענקיות: הטרנד שמשתולל בצרפת!</h3>
+                <p class="text-gray-700 mb-4">מארי אנטואנט הציבה את הסטנדרט עם פאות בגובה של עד מטר! נשות החברה הגבוהה מתחרות מי תיצור את התסרוקת הכי גבוהה והכי מוגזמת.</p>
+                <div class="bg-purple-50 border-r-4 border-purple-500 p-4 my-4">
+                    <h4 class="font-bold mb-2">מה יש בפאה של מארי?</h4>
+                    <ul class="list-disc list-inside space-y-1 text-gray-700">
+                        <li>4 קילו שיער אמיתי</li>
+                        <li>ספינה מיניאטורית (לכבוד הצי הצרפתי)</li>
+                        <li>גן שלם עם פרחים אמיתיים</li>
+                        <li>ציפורים חיות (לפעמים!)</li>
+                        <li>פיגום עץ לתמיכה</li>
+                    </ul>
+                </div>
+                <p class="text-gray-700 italic mb-3">"לא יכולתי לעבור בדלתות, אבל נראיתי מדהים!" - אצילה</p>
+                <button class="like-button w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition flex items-center justify-center gap-2" data-article-id="fashion-1">
+                    <span class="like-icon">👍</span>
+                    <span class="like-text">אהבתי</span>
+                    <span class="like-count">(0)</span>
+                </button>
             </article>
 
             <!-- Article 2 -->
             <article class="bg-white rounded-lg shadow-lg p-6">
-                <h3 class="text-3xl font-bold mb-4 text-purple-700">From Corsets to Chaos: Parisian Style Tips</h3>
-                <div class="grid md:grid-cols-2 gap-4 mb-4">
-                    <div class="border-2 border-royal-blue p-4 rounded">
-                        <h4 class="font-bold text-xl mb-2">Before (Monarchy Era):</h4>
-                        <ul class="list-disc list-inside text-gray-700">
-                            <li>Powdered wigs (2 feet tall minimum)</li>
-                            <li>Corsets (breathing optional)</li>
-                            <li>10 layers of silk</li>
-                            <li>Excessive makeup</li>
-                        </ul>
-                    </div>
-                    <div class="border-2 border-revolutionary-red p-4 rounded">
-                        <h4 class="font-bold text-xl mb-2">After (Revolution Era):</h4>
-                        <ul class="list-disc list-inside text-gray-700">
-                            <li>Natural hair (or short if guillotined)</li>
-                            <li>Simple cotton dresses</li>
-                            <li>Practical, comfortable clothing</li>
-                            <li>Minimal makeup (peasant chic!)</li>
-                        </ul>
+                <h3 class="text-3xl font-bold mb-4 text-red-700">🚩 אדום, לבן וכחול: הצבעים של המהפכה!</h3>
+                <p class="text-gray-700 mb-4">שכחו מצבעי הזהב והכסף של האצולה - הטריקולור הוא הטרנד החדש! מהפכנים בכל רחבי פריז מתהדרים בסרטים, כובעים וקוקרדות בצבעי המהפכה.</p>
+                <div class="bg-blue-50 p-4 rounded mb-4">
+                    <h4 class="font-bold text-lg mb-2">מדריך האופנה המהפכנית:</h4>
+                    <div class="space-y-2 text-gray-700">
+                        <p><strong>חובה:</strong> כובע פריגי אדום (מסמל חירות!)</p>
+                        <p><strong>אסור:</strong> תחרה יקרה (אריסטוקרטית מדי)</p>
+                        <p><strong>מומלץ:</strong> מכנסיים ארוכים במקום מכנסונים (אתה לא אציל!)</p>
+                        <p><strong>אביזר הכרחי:</strong> קוקרדה טריקולור על הכובע</p>
+                        <p><strong>השלמה:</strong> חיוך מהפכני</p>
                     </div>
                 </div>
+                <p class="text-gray-700 mb-3">"אם אין לך קוקרדה, אתה חשוד!" - משמר לאומי</p>
+                <button class="like-button w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition flex items-center justify-center gap-2" data-article-id="fashion-2">
+                    <span class="like-icon">👍</span>
+                    <span class="like-text">אהבתי</span>
+                    <span class="like-count">(0)</span>
+                </button>
             </article>
 
             <!-- Article 3 -->
             <article class="bg-white rounded-lg shadow-lg p-6">
-                <h3 class="text-3xl font-bold mb-4 text-green-700">How to Host a Revolutionary Dinner Without Losing Your Head</h3>
-                <div class="grid md:grid-cols-2 gap-4">
-                    <div>
-                        <h4 class="font-bold text-xl mb-2 text-green-600">✅ DO:</h4>
-                        <ul class="list-disc list-inside text-gray-700 space-y-1">
-                            <li>Serve bread (lots of it)</li>
-                            <li>Discuss equality for all</li>
-                            <li>Toast to the Republic</li>
-                            <li>Keep portions modest</li>
-                            <li>Use simple pottery</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-xl mb-2 text-red-600">❌ DON'T:</h4>
-                        <ul class="list-disc list-inside text-gray-700 space-y-1">
-                            <li>Serve cake (Marie Antoinette flashbacks)</li>
-                            <li>Mention your noble ancestry</li>
-                            <li>Use fine china</li>
-                            <li>Serve champagne</li>
-                            <li>Complain about bread prices</li>
-                        </ul>
-                    </div>
+                <h3 class="text-3xl font-bold mb-4 text-green-700">🌾 סגנון הכפר: מארי אנטואנט מנסה להיראות "פשוטה"</h3>
+                <p class="text-gray-700 mb-4">המלכה החליטה שהיא רוצה להיראות "טבעית" ו"כפרית", אז בנתה כפר שלם בוורסאי. התוצאה? האמבט הכי יקר בהיסטוריה של משחקי תפקידים.</p>
+                <div class="border-2 border-green-300 p-4 rounded mb-4">
+                    <h4 class="font-bold mb-2">הכפר "הפשוט" של מארי כולל:</h4>
+                    <ul class="list-disc list-inside space-y-1 text-gray-700">
+                        <li>טחנת רוח מעוצבת לפרטי פרטים</li>
+                        <li>חיות משק מטופחות במיוחד</li>
+                        <li>צאן עם סרטי משי ורודים</li>
+                        <li>ריהוט עתיק "כפרי" מיובא</li>
+                        <li>משרתים שמתחזים לאיכרים</li>
+                    </ul>
                 </div>
+                <p class="text-gray-700 italic mb-3">"עלה יותר מכפר אמיתי!" - אדריכל הארמון</p>
+                <button class="like-button w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition flex items-center justify-center gap-2" data-article-id="fashion-3">
+                    <span class="like-icon">👍</span>
+                    <span class="like-text">אהבתי</span>
+                    <span class="like-count">(0)</span>
+                </button>
             </article>
 
             <!-- Article 4 -->
-            <article class="bg-white rounded-lg shadow-lg p-6">
-                <h3 class="text-3xl font-bold mb-4 text-red-700">Trending: Red Scarves Are IN, Royal Blood Is OUT</h3>
-                <p class="text-gray-700 mb-4">This season's hottest trends analyzed by our fashion experts:</p>
-                <div class="space-y-3">
-                    <div class="border-l-4 border-green-500 pl-4">
-                        <p class="font-bold text-green-700">✅ IN: Tricolor cockades, peasant chic, natural fabrics</p>
+            <article class="bg-white rounded-lg shadow-lg p-6 border-2 border-yellow-400">
+                <div class="bg-yellow-500 text-white px-3 py-1 rounded inline-block mb-3 text-sm font-bold">עצה</div>
+                <h3 class="text-3xl font-bold mb-4 text-yellow-700">💄 איך להישאר אלגנטי בזמן מהפכה?</h3>
+                <p class="text-gray-700 mb-4">אתגרי האופנה של 1793:</p>
+                <div class="space-y-3 mb-4">
+                    <div class="bg-gray-50 p-3 rounded">
+                        <p class="text-gray-700"><strong>בעיה:</strong> הארמון שלך הוחרם</p>
+                        <p class="text-gray-600 text-sm">פתרון: למד להסתדר עם פחות מ-40 שמלות</p>
                     </div>
-                    <div class="border-l-4 border-red-500 pl-4">
-                        <p class="font-bold text-red-700">❌ OUT: Powdered wigs, silk everything, fleur-de-lis patterns</p>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <p class="text-gray-700"><strong>בעיה:</strong> התכשיטים שלך נחשבים אנטי-מהפכניים</p>
+                        <p class="text-gray-600 text-sm">פתרון: אביזרים מתוצרת מקומית בלבד</p>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <p class="text-gray-700"><strong>בעיה:</strong> הפאה שלך גבוהה מדי</p>
+                        <p class="text-gray-600 text-sm">פתרון: תסרוקת פשוטה (או גיליוטינה תפתור את זה בשבילך)</p>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <p class="text-gray-700"><strong>בעיה:</strong> הנעליים עם העקבים נראות יוהרתניות</p>
+                        <p class="text-gray-600 text-sm">פתרון: עקבים שטוחים - אופנתי ומעשי לריצה מהגיליוטינה</p>
                     </div>
                 </div>
+                <button class="like-button w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition flex items-center justify-center gap-2" data-article-id="fashion-4">
+                    <span class="like-icon">👍</span>
+                    <span class="like-text">אהבתי</span>
+                    <span class="like-count">(0)</span>
+                </button>
             </article>
 
             <!-- Article 5 -->
             <article class="bg-white rounded-lg shadow-lg p-6">
-                <h3 class="text-3xl font-bold mb-4 text-blue-700">5 Tips for Simple Living in an Era of Violent Political Change</h3>
-                <ol class="list-decimal list-inside space-y-3 text-gray-700">
-                    <li><strong>Stay Neutral:</strong> Don't take sides. It's safer that way.</li>
-                    <li><strong>Hoard Bread:</strong> You never know when the next shortage will hit.</li>
-                    <li><strong>Keep Your Head Down:</strong> Literally. Avoid attention.</li>
-                    <li><strong>Learn to Knit:</strong> Productive and calming while watching executions.</li>
-                    <li><strong>Practice Your Revolutionary Songs:</strong> Knowing "La Marseillaise" might save your life.</li>
+                <h3 class="text-3xl font-bold mb-4 text-pink-700">💎 אופנת התכשיטים: מהכתר לקוקרדה</h3>
+                <p class="text-gray-700 mb-4">מגמת התכשיטים משתנה באופן דרמטי! מה היה בטרנד אתמול הוא היום עילה להוצאה להורג.</p>
+                <div class="grid md:grid-cols-2 gap-4 mb-4">
+                    <div class="bg-red-50 p-4 rounded">
+                        <h4 class="font-bold text-red-700 mb-2">❌ יצא מהאופנה:</h4>
+                        <ul class="space-y-1 text-gray-700 text-sm">
+                            <li>• כתרי יהלומים</li>
+                            <li>• שרשראות זהב משפחתיות</li>
+                            <li>• סמלי המלוכה</li>
+                            <li>• תכשיטי פנינים ענקיים</li>
+                            <li>• כל דבר עם קשר למלוכה</li>
+                        </ul>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded">
+                        <h4 class="font-bold text-green-700 mb-2">✅ נכנס לאופנה:</h4>
+                        <ul class="space-y-1 text-gray-700 text-sm">
+                            <li>• קוקרדות טריקולור</li>
+                            <li>• סיכות עם סמלי החירות</li>
+                            <li>• כובעים פריגיים</li>
+                            <li>• תכשיטים פשוטים מברזל</li>
+                            <li>• כל דבר פטריוטי</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="text-gray-700 italic mb-3">"פשוט הוא החדש מפואר - או שתאבד את הראש!" - מעצב אופנה</p>
+                <button class="like-button w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition flex items-center justify-center gap-2" data-article-id="fashion-5">
+                    <span class="like-icon">👍</span>
+                    <span class="like-text">אהבתי</span>
+                    <span class="like-count">(0)</span>
+                </button>
+            </article>
+
+            <!-- Article 6 -->
+            <article class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-3xl font-bold mb-4 text-blue-700">🧵 DIY: תפור את דגל המהפכה שלך!</h3>
+                <p class="text-gray-700 mb-4">המדריך המלא ליצירת אביזרי מהפכה בבית:</p>
+                <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-4">
+                    <li>השג בד אדום, לבן וכחול (גנוב מהאצולה, זה בסדר)</li>
+                    <li>תפור אותם יחד בפסים אנכיים</li>
+                    <li>הוסף סמל חירות (כובע פריגי על מקל טוב)</li>
+                    <li>נופף בו בגאווה באסיפות</li>
+                    <li>השתמש בו כדי לזהות אחרים כפטריוטים</li>
                 </ol>
+                <div class="bg-blue-50 p-4 rounded mb-3">
+                    <p class="text-blue-900 font-bold">טיפ מקצועי: אם אין לך בד כחול, השתמש בכל גוון כחול. אף אחד לא יבדיק בקפדנות בזמן מהפכה!</p>
+                </div>
+                <button class="like-button w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition flex items-center justify-center gap-2" data-article-id="fashion-6">
+                    <span class="like-icon">👍</span>
+                    <span class="like-text">אהבתי</span>
+                    <span class="like-count">(0)</span>
+                </button>
             </article>
         </div>
 
         <!-- Comments Section -->
         <section class="bg-white rounded-lg shadow-lg p-6 mt-8">
-            <h3 class="text-3xl font-bold mb-4 text-gray-800">💬 Fashionista Comments</h3>
+            <h3 class="text-3xl font-bold mb-4 text-gray-800">💬 עצות אופנה נוספות</h3>
             <form id="comment-form" class="mb-6">
                 <div class="mb-4">
-                    <label for="comment-name" class="block text-gray-700 font-bold mb-2">Name:</label>
-                    <input type="text" id="comment-name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-revolutionary-red" placeholder="Your Name" required>
+                    <label for="comment-name" class="block text-gray-700 font-bold mb-2">שם:</label>
+                    <input type="text" id="comment-name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-revolutionary-red" placeholder="שמך" required>
                 </div>
                 <div class="mb-4">
-                    <label for="comment-text" class="block text-gray-700 font-bold mb-2">Comment:</label>
-                    <textarea id="comment-text" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-revolutionary-red" placeholder="Share your fashion thoughts..." required></textarea>
+                    <label for="comment-text" class="block text-gray-700 font-bold mb-2">תגובה:</label>
+                    <textarea id="comment-text" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-revolutionary-red" placeholder="שתף את עצות האופנה שלך..." required></textarea>
                 </div>
-                <button type="submit" class="bg-revolutionary-red text-white px-6 py-2 rounded-lg hover:bg-red-800 transition font-bold">Submit Comment</button>
+                <button type="submit" class="bg-revolutionary-red text-white px-6 py-2 rounded-lg hover:bg-red-800 transition font-bold">שלח תגובה</button>
             </form>
             <div id="comments-display" class="space-y-4"></div>
         </section>
@@ -155,7 +216,7 @@
 
     <footer class="bg-gray-800 text-white py-8 mt-8">
         <div class="container mx-auto px-4 text-center">
-            <p class="text-xs text-gray-500">© 1793 Le Guillotine Gazette. All rights reserved.</p>
+            <p class="text-xs text-gray-500">© 1793 עיתון הגיליוטינה. כל הזכויות שמורות.</p>
         </div>
     </footer>
 

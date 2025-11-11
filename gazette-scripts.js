@@ -8,19 +8,12 @@ const GITHUB_CONFIG = {
     token: '', // Add your GitHub personal access token here
 };
 
-// Update current time
+// Update current time - FIXED to January 21, 1793
 function updateTime() {
     const timeElement = document.getElementById('current-time');
     if (timeElement) {
-        const now = new Date();
-        timeElement.textContent = `Paris Time: ${now.toLocaleString('fr-FR', { 
-            weekday: 'long', 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit'
-        })}`;
+        // Fixed date: January 21, 1793 - The execution of Louis XVI
+        timeElement.textContent = `21 בינואר 1793, פריז`;
     }
 }
 
@@ -165,9 +158,9 @@ async function handleCommentSubmit(event) {
     
     // Show success message
     if (savedToGitHub) {
-        showNotification('Comment saved to repository! Vive la Révolution! 🎉');
+        showNotification('התגובה נשמרה למאגר! יחי המהפכה! 🎉');
     } else {
-        showNotification('Comment saved locally! (Configure GitHub token to save to repo)');
+        showNotification('התגובה נשמרה מקומית! (הגדר טוקן GitHub לשמירה למאגר)');
     }
 }
 
@@ -231,12 +224,12 @@ function escapeHtml(text) {
 function getTimeAgo(date) {
     const seconds = Math.floor((new Date() - date) / 1000);
     
-    if (seconds < 60) return 'Just now';
-    if (seconds < 3600) return `${Math.floor(seconds / 60)} minutes ago`;
-    if (seconds < 86400) return `${Math.floor(seconds / 3600)} hours ago`;
-    if (seconds < 604800) return `${Math.floor(seconds / 86400)} days ago`;
+    if (seconds < 60) return 'ממש עכשיו';
+    if (seconds < 3600) return `לפני ${Math.floor(seconds / 60)} דקות`;
+    if (seconds < 86400) return `לפני ${Math.floor(seconds / 3600)} שעות`;
+    if (seconds < 604800) return `לפני ${Math.floor(seconds / 86400)} ימים`;
     
-    return date.toLocaleDateString('fr-FR');
+    return date.toLocaleDateString('he-IL');
 }
 
 // Show notification
@@ -252,6 +245,71 @@ function showNotification(message) {
         notification.style.transition = 'opacity 0.5s';
         setTimeout(() => notification.remove(), 500);
     }, 3000);
+}
+
+// Like button functionality
+function initializeLikeButtons() {
+    const likeButtons = document.querySelectorAll('.like-button');
+    
+    likeButtons.forEach(button => {
+        const articleId = button.getAttribute('data-article-id');
+        const likeCountSpan = button.querySelector('.like-count');
+        const likeIcon = button.querySelector('.like-icon');
+        const likeText = button.querySelector('.like-text');
+        
+        // Load saved like count from localStorage
+        const savedLikes = parseInt(localStorage.getItem(`article_likes_${articleId}`) || '0');
+        const hasLiked = localStorage.getItem(`article_liked_${articleId}`) === 'true';
+        
+        // Update UI
+        likeCountSpan.textContent = `(${savedLikes})`;
+        if (hasLiked) {
+            button.classList.remove('bg-blue-500', 'hover:bg-blue-600');
+            button.classList.add('bg-green-600', 'hover:bg-green-700');
+            likeIcon.textContent = '✅';
+            likeText.textContent = 'אהבת';
+        }
+        
+        // Add click handler
+        button.addEventListener('click', () => {
+            const currentLikes = parseInt(localStorage.getItem(`article_likes_${articleId}`) || '0');
+            const hasLiked = localStorage.getItem(`article_liked_${articleId}`) === 'true';
+            
+            if (!hasLiked) {
+                // Like the article
+                const newLikes = currentLikes + 1;
+                localStorage.setItem(`article_likes_${articleId}`, newLikes.toString());
+                localStorage.setItem(`article_liked_${articleId}`, 'true');
+                
+                likeCountSpan.textContent = `(${newLikes})`;
+                button.classList.remove('bg-blue-500', 'hover:bg-blue-600');
+                button.classList.add('bg-green-600', 'hover:bg-green-700');
+                likeIcon.textContent = '✅';
+                likeText.textContent = 'אהבת';
+                
+                // Add animation
+                button.style.transform = 'scale(1.1)';
+                setTimeout(() => {
+                    button.style.transform = 'scale(1)';
+                }, 200);
+                
+                showNotification('תודה על האהבה! 💙');
+            } else {
+                // Unlike the article
+                const newLikes = Math.max(0, currentLikes - 1);
+                localStorage.setItem(`article_likes_${articleId}`, newLikes.toString());
+                localStorage.setItem(`article_liked_${articleId}`, 'false');
+                
+                likeCountSpan.textContent = `(${newLikes})`;
+                button.classList.remove('bg-green-600', 'hover:bg-green-700');
+                button.classList.add('bg-blue-500', 'hover:bg-blue-600');
+                likeIcon.textContent = '👍';
+                likeText.textContent = 'אהבתי';
+                
+                showNotification('ביטלת את האהבה');
+            }
+        });
+    });
 }
 
 // Add hover effects to articles
@@ -282,6 +340,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Animate view counters
     animateViewCounters();
     
+    // Initialize like buttons
+    initializeLikeButtons();
+    
     // Load existing comments
     loadComments();
     
@@ -294,12 +355,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add article effects
     addArticleEffects();
     
-    console.log('⚔️ Le Guillotine Gazette loaded successfully! Vive la Révolution! ⚔️');
+    console.log('⚔️ עיתון הגיליוטינה נטען בהצלחה! יחי המהפכה! ⚔️');
     
     // Check if GitHub token is configured
     if (!GITHUB_CONFIG.token) {
-        console.warn('⚠️ GitHub token not configured. Comments will only be saved locally.');
-        console.log('To enable saving to repository, add your GitHub token to gazette-scripts.js');
+        console.warn('⚠️ טוקן GitHub לא מוגדר. תגובות יישמרו רק מקומית.');
+        console.log('כדי לאפשר שמירה למאגר, הוסף את טוקן GitHub שלך ל-gazette-scripts.js');
     }
 });
 

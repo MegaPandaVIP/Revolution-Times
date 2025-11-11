@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Royals & Drama - Le Guillotine Gazette</title>
+    <title>בית המלוכה ודרמה - עיתון הגיליוטינה</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -22,144 +22,140 @@
 <body class="bg-parchment">
     <header class="bg-revolutionary-red text-white shadow-lg">
         <div class="container mx-auto px-4 py-6">
-            <h1 class="text-5xl font-bold text-center mb-2">⚔️ Le Guillotine Gazette ⚔️</h1>
-            <p class="text-center text-xl italic">"All the News That's Fit to Behead"</p>
+            <h1 class="text-5xl font-bold text-center mb-2">⚔️ עיתון הגיליוטינה ⚔️</h1>
+            <p class="text-center text-xl italic">"מסובבים ועורפים ראשים מאז 1759"</p>
         </div>
     </header>
 
     <nav class="bg-royal-blue text-white sticky top-0 z-50 shadow-md">
         <div class="container mx-auto px-4">
-            <ul class="flex flex-wrap justify-center space-x-2 py-3">
-                <li><a href="index.html" class="px-4 py-2 hover:bg-white hover:text-royal-blue rounded transition">🏠 HOME</a></li>
-                <li><a href="politics.html" class="px-4 py-2 hover:bg-white hover:text-royal-blue rounded transition">⚖️ POLITICS</a></li>
-                <li><a href="royals.html" class="px-4 py-2 hover:bg-white hover:text-royal-blue rounded transition font-bold">👑 ROYALS</a></li>
-                <li><a href="gossip.html" class="px-4 py-2 hover:bg-white hover:text-royal-blue rounded transition">💋 GOSSIP</a></li>
-                <li><a href="fashion.html" class="px-4 py-2 hover:bg-white hover:text-royal-blue rounded transition">👗 FASHION</a></li>
+            <ul class="flex flex-wrap justify-center space-x-reverse space-x-2 py-3">
+                <li><a href="index.html" class="px-4 py-2 hover:bg-white hover:text-royal-blue rounded transition">🏠 בית</a></li>
+                <li><a href="politics.html" class="px-4 py-2 hover:bg-white hover:text-royal-blue rounded transition">⚖️ פוליטיקה</a></li>
+                <li><a href="royals.html" class="px-4 py-2 hover:bg-white hover:text-royal-blue rounded transition font-bold">👑 בית המלוכה</a></li>
+                <li><a href="gossip.html" class="px-4 py-2 hover:bg-white hover:text-royal-blue rounded transition">💋 רכילות</a></li>
+                <li><a href="fashion.html" class="px-4 py-2 hover:bg-white hover:text-royal-blue rounded transition">👗 אופנה</a></li>
             </ul>
         </div>
     </nav>
 
     <main class="container mx-auto px-4 py-8">
-        <h2 class="text-4xl font-bold mb-8 text-center text-royal-blue">👑 Royals & Drama</h2>
+        <h2 class="text-4xl font-bold mb-8 text-center text-royal-blue">👑 בית המלוכה ודרמה</h2>
 
         <div class="space-y-6">
             <!-- Article 1 -->
             <article class="bg-white rounded-lg shadow-lg p-6 border-t-4 border-yellow-500">
-                <div class="bg-red-600 text-white px-3 py-1 rounded inline-block mb-3 text-sm font-bold">SCANDAL</div>
-                <h3 class="text-3xl font-bold mb-4 text-yellow-700">🍰 Marie Antoinette Caught Eating Cake AGAIN!</h3>
-                <p class="text-gray-700 mb-4">Despite the ongoing bread shortage affecting millions of French citizens, palace insiders report that the Queen was spotted indulging in an elaborate three-tier cake yesterday afternoon.</p>
+                <div class="bg-red-600 text-white px-3 py-1 rounded inline-block mb-3 text-sm font-bold">שערורייה</div>
+                <h3 class="text-3xl font-bold mb-4 text-yellow-700">🍰 מארי אנטואנט נתפסה אוכלת עוגה שוב!</h3>
+                <p class="text-gray-700 mb-4">למרות המחסור המתמשך בלחם המשפיע על מיליוני אזרחים צרפתיים, מקורות בארמון מדווחים שהמלכה נצפתה מתפנקת בעוגה משוכללת בת שלוש קומות אתמול אחר הצהריים.</p>
                 <div class="bg-red-50 border-l-4 border-red-500 p-4 my-4">
-                    <p class="text-red-900"><strong>Public Outrage:</strong> "While we starve, she eats cake? This is exactly why we're revolting!" - Angry Parisian</p>
+                    <p class="text-red-900"><strong>זעם ציבורי:</strong> "בעוד אנחנו מורעבים, היא אוכלת עוגה? זו בדיוק הסיבה שאנחנו מורדים!" - פריזאי זועם</p>
                 </div>
-                <p class="text-gray-700">Palace officials maintain the cake was "just a birthday celebration" but the people aren't buying it.</p>
+                <p class="text-gray-700 mb-3">פקידי הארמון טוענים שהעוגה הייתה "רק חגיגת יום הולדת" אבל העם לא קונה את זה.</p>
+                <button class="like-button w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition flex items-center justify-center gap-2" data-article-id="royals-1">
+                    <span class="like-icon">👍</span>
+                    <span class="like-text">אהבתי</span>
+                    <span class="like-count">(0)</span>
+                </button>
             </article>
 
             <!-- Article 2 -->
             <article class="bg-white rounded-lg shadow-lg p-6">
-                <h3 class="text-3xl font-bold mb-4 text-red-700">🚗 King Louis' "Vacation" to Varennes: Epic Fail</h3>
-                <p class="text-gray-700 mb-4">The royal family's attempted escape to the Austrian border has become the most embarrassing failed getaway in history.</p>
+                <h3 class="text-3xl font-bold mb-4 text-red-700">🚗 "החופשה" של המלך לואי לוואר: כישלון אפי</h3>
+                <p class="text-gray-700 mb-4">ניסיון הבריחה של המשפחה המלכותית לגבול האוסטרי הפך לבריחה הכושלת המביכה ביותר בהיסטוריה.</p>
                 <div class="bg-gray-100 p-4 rounded mb-4">
-                    <h4 class="font-bold text-lg mb-2">Timeline of Failure:</h4>
+                    <h4 class="font-bold text-lg mb-2">ציר זמן של כישלון:</h4>
                     <ul class="space-y-2 text-gray-700">
-                        <li>🕐 <strong>11 PM:</strong> Royal family sneaks out of Tuileries Palace</li>
-                        <li>🕑 <strong>2 AM:</strong> Already lost, asking for directions</li>
-                        <li>🕘 <strong>9 AM:</strong> Stopped for breakfast, recognized by postmaster</li>
-                        <li>🕛 <strong>12 PM:</strong> Surrounded by National Guard</li>
-                        <li>🕔 <strong>5 PM:</strong> Arrested and escorted back to Paris in shame</li>
+                        <li>🕐 <strong>23:00:</strong> המשפחה המלכותית מתגנבת מארמון טווילרי</li>
+                        <li>🕑 <strong>02:00:</strong> כבר אבודים, שואלים הוראות דרך</li>
+                        <li>🕘 <strong>09:00:</strong> עצרו לארוחת בוקר, זוהו על ידי מנהל הדואר</li>
+                        <li>🕛 <strong>12:00:</strong> מוקפים על ידי המשמר הלאומי</li>
+                        <li>🕔 <strong>17:00:</strong> נעצרו ומלווים חזרה לפריז בבושה</li>
                     </ul>
                 </div>
-                <p class="text-gray-700 italic">"They were traveling in the fanciest carriage ever. Not exactly subtle." - Witness</p>
+                <p class="text-gray-700 italic mb-3">"הם נסעו בכרכרה הכי מפוארת שאי פעם ראו. לא בדיוק דיסקרטי." - עד ראייה</p>
+                <button class="like-button w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition flex items-center justify-center gap-2" data-article-id="royals-2">
+                    <span class="like-icon">👍</span>
+                    <span class="like-text">אהבתי</span>
+                    <span class="like-count">(0)</span>
+                </button>
             </article>
 
             <!-- Article 3 -->
             <article class="bg-white rounded-lg shadow-lg p-6">
-                <h3 class="text-3xl font-bold mb-4 text-purple-700">📱 Royal Influencer Brand Deal Goes Wrong</h3>
-                <p class="text-gray-700 mb-4">Marie Antoinette's attempt to rebrand as a "simple country girl" has backfired spectacularly.</p>
+                <h3 class="text-3xl font-bold mb-4 text-purple-700">📱 עסקת המותג של האינפלואנסרית המלכותית השתבשה</h3>
+                <p class="text-gray-700 mb-4">הניסיון של מארי אנטואנט למתג עצמה מחדש כ"נערת כפר פשוטה" נכשל בצורה מרהיבה.</p>
                 <div class="border-2 border-purple-300 p-4 rounded mb-4">
-                    <p class="text-gray-700 mb-2"><strong>The Plan:</strong> Create a rustic hamlet at Versailles, dress as a shepherdess, promote "simple living"</p>
-                    <p class="text-gray-700"><strong>The Reality:</strong> Cost millions, angered actual peasants, contributed to revolutionary sentiment</p>
+                    <p class="text-gray-700 mb-2"><strong>התוכנית:</strong> ליצור כפר כפרי בוורסאי, להתלבש כרועת צאן, לקדם "חיים פשוטים"</p>
+                    <p class="text-gray-700"><strong>המציאות:</strong> עלה מיליונים, הכעיס איכרים אמיתיים, תרם לרגש המהפכני</p>
                 </div>
-                <p class="text-gray-700 font-bold">Result: Execution. Worst brand fail ever.</p>
+                <p class="text-gray-700 mb-3">"היא משחקת כפרית בעוד שאני לא יכול להרשות לחם!" - איכר אמיתי</p>
+                <button class="like-button w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition flex items-center justify-center gap-2" data-article-id="royals-3">
+                    <span class="like-icon">👍</span>
+                    <span class="like-text">אהבתי</span>
+                    <span class="like-count">(0)</span>
+                </button>
             </article>
 
             <!-- Article 4 -->
-            <article class="bg-white rounded-lg shadow-lg p-6">
-                <h3 class="text-3xl font-bold mb-4 text-pink-700">💇 Ranking Palace Hairstyles: From Wow to "You're Next"</h3>
-                <div class="space-y-4">
-                    <div class="border-l-4 border-green-500 pl-4">
-                        <p class="font-bold text-green-700">5/5 Stars: The "Tower of Power"</p>
-                        <p class="text-gray-700 text-sm">2 feet high, includes ship model. Iconic.</p>
-                    </div>
-                    <div class="border-l-4 border-blue-500 pl-4">
-                        <p class="font-bold text-blue-700">4/5 Stars: The "Diplomatic Crisis"</p>
-                        <p class="text-gray-700 text-sm">Features symbols from three countries. Confusing but impressive.</p>
-                    </div>
-                    <div class="border-l-4 border-yellow-500 pl-4">
-                        <p class="font-bold text-yellow-700">3/5 Stars: The "Garden Party"</p>
-                        <p class="text-gray-700 text-sm">Actual flowers. Started wilting during dinner.</p>
-                    </div>
-                    <div class="border-l-4 border-orange-500 pl-4">
-                        <p class="font-bold text-orange-700">2/5 Stars: The "I Tried"</p>
-                        <p class="text-gray-700 text-sm">Attempting the trend but falling short. C+ for effort.</p>
-                    </div>
-                    <div class="border-l-4 border-red-500 pl-4">
-                        <p class="font-bold text-red-700">1/5 Stars: Natural Hair</p>
-                        <p class="text-gray-700 text-sm">Suspiciously revolutionary. Under investigation.</p>
-                    </div>
-                </div>
+            <article class="bg-white rounded-lg shadow-lg p-6 border-2 border-pink-400">
+                <h3 class="text-3xl font-bold mb-4 text-pink-700">💎 רשימת מתנות החתונה המלכותית דלפה!</h3>
+                <p class="text-gray-700 mb-4">מסמכים שדלפו חושפים את רשימת המתנות המוגזמת מחתונת לואי ומארי אנטואנט:</p>
+                <ul class="list-disc list-inside space-y-2 text-gray-700 mb-4">
+                    <li>ארמון קיץ זעיר (רק 47 חדרים)</li>
+                    <li>סט יהלומים בשווי הכנסה שנתית של 10,000 משפחות</li>
+                    <li>75 שמלות חדשות למלכה</li>
+                    <li>ספריית מנעולים נדירים למלך (התחביב היקר שלו)</li>
+                    <li>פסנתר מצופה זהב שאף אחד לא יודע לנגן בו</li>
+                </ul>
+                <p class="text-gray-700 italic mb-3">"כל זה בזמן שמסים עולים? מדהים." - כלכלן</p>
+                <button class="like-button w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition flex items-center justify-center gap-2" data-article-id="royals-4">
+                    <span class="like-icon">👍</span>
+                    <span class="like-text">אהבתי</span>
+                    <span class="like-count">(0)</span>
+                </button>
             </article>
 
             <!-- Article 5 -->
-            <article class="bg-white rounded-lg shadow-lg p-6 border-2 border-red-700">
-                <div class="bg-red-700 text-white px-3 py-1 rounded inline-block mb-3 text-sm font-bold">HISTORIC</div>
-                <h3 class="text-3xl font-bold mb-4 text-red-700">⏰ Louis XVI Execution: Full Timeline</h3>
-                <p class="text-gray-700 mb-4">Minute-by-minute breakdown of January 21, 1793:</p>
-                <div class="space-y-3 text-gray-700">
-                    <div class="flex">
-                        <span class="font-bold w-20">6:00 AM:</span>
-                        <span>Louis wakes up, probably wishes he hadn't</span>
+            <article class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-3xl font-bold mb-4 text-green-700">👨‍👩‍👧‍👦 בית המשפחה המלכותית: הריאליטי שאף אחד לא ביקש</h3>
+                <p class="text-gray-700 mb-4">חיי היומיום של המשפחה המלכותית הם מביכים יותר ממה שחשבתם:</p>
+                <div class="space-y-3 mb-4">
+                    <div class="bg-gray-50 p-3 rounded">
+                        <p class="text-gray-700"><strong>לואי:</strong> מעדיף לתקן מנעולים מאשר לשלוט במדינה</p>
                     </div>
-                    <div class="flex">
-                        <span class="font-bold w-20">7:30 AM:</span>
-                        <span>Final confession. Lots to confess.</span>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <p class="text-gray-700"><strong>מארי:</strong> מוציאה את התקציב השנתי על פאות</p>
                     </div>
-                    <div class="flex">
-                        <span class="font-bold w-20">9:00 AM:</span>
-                        <span>Carriage departs Tuileries Palace</span>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <p class="text-gray-700"><strong>הילדים:</strong> מגודלים על ידי צוות של 40 משרתים</p>
                     </div>
-                    <div class="flex">
-                        <span class="font-bold w-20">10:10 AM:</span>
-                        <span>Arrives at Place de la Révolution</span>
-                    </div>
-                    <div class="flex">
-                        <span class="font-bold w-20">10:15 AM:</span>
-                        <span>Final words: "I forgive my enemies..."</span>
-                    </div>
-                    <div class="flex">
-                        <span class="font-bold w-20">10:22 AM:</span>
-                        <span>Execution completed. France is now a Republic.</span>
-                    </div>
-                    <div class="flex">
-                        <span class="font-bold w-20">10:23 AM:</span>
-                        <span>Crowd disperses. Some grab lunch.</span>
+                    <div class="bg-gray-50 p-3 rounded">
+                        <p class="text-gray-700"><strong>החתול המלכותי:</strong> יש לו שף אישי</p>
                     </div>
                 </div>
+                <p class="text-gray-700 italic mb-3">"אולי הם פשוט לא מתאימים לתפקיד הזה?" - מקור בארמון</p>
+                <button class="like-button w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition flex items-center justify-center gap-2" data-article-id="royals-5">
+                    <span class="like-icon">👍</span>
+                    <span class="like-text">אהבתי</span>
+                    <span class="like-count">(0)</span>
+                </button>
             </article>
         </div>
 
         <!-- Comments Section -->
         <section class="bg-white rounded-lg shadow-lg p-6 mt-8">
-            <h3 class="text-3xl font-bold mb-4 text-gray-800">💬 Dramatic Comments</h3>
+            <h3 class="text-3xl font-bold mb-4 text-gray-800">💬 תגובות על המלוכה</h3>
             <form id="comment-form" class="mb-6">
                 <div class="mb-4">
-                    <label for="comment-name" class="block text-gray-700 font-bold mb-2">Name:</label>
-                    <input type="text" id="comment-name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-revolutionary-red" placeholder="Your Name" required>
+                    <label for="comment-name" class="block text-gray-700 font-bold mb-2">שם:</label>
+                    <input type="text" id="comment-name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-revolutionary-red" placeholder="שמך" required>
                 </div>
                 <div class="mb-4">
-                    <label for="comment-text" class="block text-gray-700 font-bold mb-2">Comment:</label>
-                    <textarea id="comment-text" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-revolutionary-red" placeholder="Share your thoughts on royal drama..." required></textarea>
+                    <label for="comment-text" class="block text-gray-700 font-bold mb-2">תגובה:</label>
+                    <textarea id="comment-text" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-revolutionary-red" placeholder="שתף את דעתך על המלוכה..." required></textarea>
                 </div>
-                <button type="submit" class="bg-revolutionary-red text-white px-6 py-2 rounded-lg hover:bg-red-800 transition font-bold">Submit Comment</button>
+                <button type="submit" class="bg-revolutionary-red text-white px-6 py-2 rounded-lg hover:bg-red-800 transition font-bold">שלח תגובה</button>
             </form>
             <div id="comments-display" class="space-y-4"></div>
         </section>
@@ -167,7 +163,7 @@
 
     <footer class="bg-gray-800 text-white py-8 mt-8">
         <div class="container mx-auto px-4 text-center">
-            <p class="text-xs text-gray-500">© 1793 Le Guillotine Gazette. All rights reserved.</p>
+            <p class="text-xs text-gray-500">© 1793 עיתון הגיליוטינה. כל הזכויות שמורות.</p>
         </div>
     </footer>
 
