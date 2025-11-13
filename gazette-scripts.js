@@ -5,8 +5,33 @@ const GITHUB_CONFIG = {
     owner: 'MegaPandaVIP',
     repo: 'Revolution-Times',
     branch: 'French_Cheese',
-    token: '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', // Add your GitHub personal access token here
+    // token is intentionally not hard-coded here. See getGitHubToken() below.
 };
+
+// Get GitHub token from build-time env or runtime global.
+// - At build time you can inject process.env.TOKEN (e.g. via bundler or CI).
+// - At runtime you can set window.__GITHUB_TOKEN__ (for example, in your HTML only on trusted hosts).
+function getGitHubToken() {
+    try {
+        // build-time injection (e.g. webpack DefinePlugin, Vite, etc.)
+        if (typeof process !== 'undefined' && process.env && process.env.TOKEN) {
+            return process.env.TOKEN;
+        }
+    } catch (e) {
+        // ignore
+    }
+
+    // runtime injection on the page (must be set by server-side templating or other secure mechanism)
+    if (typeof globalThis !== 'undefined' && globalThis.__GITHUB_TOKEN__) {
+        return globalThis.__GITHUB_TOKEN__;
+    }
+    if (typeof window !== 'undefined' && window.__GITHUB_TOKEN__) {
+        return window.__GITHUB_TOKEN__;
+    }
+
+    // If no token is available, return empty string so callers can handle it.
+    return '';
+}
 
 // Update current time - FIXED to January 21, 1793
 function updateTime() {
@@ -32,7 +57,7 @@ function updateGuillotineCounter() {
 function animateViewCounters() {
     const counters = document.querySelectorAll('.view-count');
     counters.forEach(counter => {
-        const originalValue = parseInt(counter.textContent.replace(/,/g, ''));
+        const originalValue = parseInt(counter.textContent.replace(/,/g, '')) || 0;
         let currentValue = originalValue;
         
         const interval = setInterval(() => {
@@ -44,7 +69,8 @@ function animateViewCounters() {
 
 // Save comment to GitHub repository
 async function saveCommentToGitHub(comment) {
-    if (!GITHUB_CONFIG.token) {
+    const token = getGitHubToken();
+    if (!token) {
         console.warn('GitHub token not configured. Comment will only be saved locally.');
         return false;
     }
@@ -56,7 +82,7 @@ async function saveCommentToGitHub(comment) {
         const path = `comments/${filename}`;
         
         const commentContent = [
-            '=' .repeat(60),
+            '='.repeat(60),
             'LE GUILLOTINE GAZETTE - READER COMMENT',
             '='.repeat(60),
             '',
@@ -85,7 +111,7 @@ async function saveCommentToGitHub(comment) {
             {
                 method: 'PUT',
                 headers: {
-                    'Authorization': `token ${GITHUB_CONFIG.token}`,
+                    'Authorization': `token ${token}`,
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
@@ -358,9 +384,9 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('⚔️ עיתון הגיליוטינה נטען בהצלחה! יחי המהפכה! ⚔️');
     
     // Check if GitHub token is configured
-    if (!GITHUB_CONFIG.token) {
+    if (!getGitHubToken()) {
         console.warn('⚠️ טוקן GitHub לא מוגדר. תגובות יישמרו רק מקומית.');
-        console.log('כדי לאפשר שמירה למאגר, הוסף את טוקן GitHub שלך ל-gazette-scripts.js');
+        console.log('כדי לאפשר שמירה למאגר, הוסף את טוקן GitHub שלך דרך process.env.TOKEN (build) או window.__GITHUB_TOKEN__ (runtime).');
     }
 });
 
