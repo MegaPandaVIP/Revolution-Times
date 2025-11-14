@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👑 האמת על המהפכה - הגנה על המלוכה!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        royal: '#1E3A8A',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="gazette-styles.css">
+    <style>
+        /* Popup Ad Styles */
+        .popup-ad {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #1E3A8A 0%, #1E40AF 100%);
+            border: 5px solid #FCD34D;
+            padding: 30px;
+            z-index: 10000;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            max-width: 500px;
+            width: 90%;
+            animation: shake 0.5s infinite;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+            25% { transform: translate(-50%, -50%) rotate(-2deg); }
+            75% { transform: translate(-50%, -50%) rotate(2deg); }
+        }
+        
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 9999;
+        }
+        
+        .close-ad {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #FCD34D;
+            color: #1E3A8A;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        .banner-ad {
+            background: linear-gradient(90deg, #1E3A8A 0%, #1E40AF 50%, #1E3A8A 100%);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-weight: bold;
+            font-size: 18px;
+            animation: flash 1s infinite;
+        }
+        
+        @keyframes flash {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body class="bg-blue-50">
+    <!-- Popup Ad Overlay -->
+    <div class="popup-overlay" id="popupOverlay"></div>
+    
+    <!-- Popup Ad -->
+    <div class="popup-ad" id="popupAd">
+        <button class="close-ad" onclick="closeAd()">✕</button>
+        <div class="text-center">
+            <img id="adImage" src="" alt="פרסומת" style="max-width: 100%; height: auto; border-radius: 8px;">
+        </div>
+    </div>
+
+    <!-- Banner Ad -->
+    <div class="banner-ad">
+        👑 ספר חדש: "האמת על המהפכה - איך המון הרס את צרפת" - קנו עכשיו! 👑
+    </div>
+
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-blue-900 to-blue-700 text-white shadow-2xl">
+        <div class="container mx-auto px-4 py-6">
+            <h1 class="text-5xl font-bold text-center animate-pulse">👑 האמת על המהפכה! 👑</h1>
+            <p class="text-center text-xl mt-2 text-yellow-300">"הגנה על הסדר והמסורת!"</p>
+            <div class="text-center mt-2 text-sm" id="current-time">21 בינואר 1793, פריז</div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-blue-800 text-white sticky top-0 z-50 shadow-lg">
+        <ul class="container mx-auto px-4 flex justify-center space-x-reverse space-x-8 py-4">
+            <li><a href="index-anti.html" class="hover:text-yellow-300 transition font-bold">🏠 בית</a></li>
+            <li><a href="politics-anti.html" class="hover:text-yellow-300 transition font-bold">⚖️ פוליטיקה</a></li>
+            <li><a href="royals-anti.html" class="hover:text-yellow-300 transition font-bold">👑 המלוכה</a></li>
+            <li><a href="gossip-anti.html" class="hover:text-yellow-300 transition font-bold">💋 חשיפות</a></li>
+            <li><a href="fashion-anti.html" class="hover:text-yellow-300 transition font-bold">👗 אופנה</a></li>
+        </ul>
+    </nav>
+
+    <!-- Breaking News Banner -->
+    <div class="bg-blue-900 text-yellow-300 text-center py-3 text-2xl font-bold animate-bounce">
+        🚨 רצח פוליטי מזעזע! המהפכנים משמידים את צרפת! 🚨
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="grid gap-8">
+            
+            <!-- Article 1 -->
+            <article class="bg-white rounded-lg shadow-2xl overflow-hidden border-4 border-blue-600">
+                <div class="bg-blue-800 text-white px-4 py-2 font-bold text-xl">😢 טרגדיה!</div>
+                <div class="p-6">
+                    <h2 class="text-3xl font-bold mb-3 text-blue-700">👑 רצח מלך! לואי ה-16 נרצח ללא משפט הוגן! (פשע נגד האנושות!)</h2>
+                    <p class="text-gray-700 mb-4"><strong>רצח פוליטי מזעזע!</strong> המהפכנים הרגו את מלך צרפת ללא משפט הוגן אמיתי! לואי ה-16 היה מלך טוב שניסה לעזור לעם! זה לא צדק - זה אנרכיה! הם הרסו את הסדר החברתי ופתחו את שערי הטרור! זוהי תחילת תקופה אפלה שתהרוג אלפים חפים מפשע! 😢💔</p>
+                    <div class="bg-blue-50 border-r-4 border-blue-600 p-4 mb-4">
+                        <p class="text-blue-900 font-bold">👑 "מלך טוב נרצח על ידי המון פרוע! זו השפלה לצרפת!" - אציל נאמן</p>
+                    </div>
+                    <div class="flex justify-between items-center text-sm text-gray-500 mb-3">
+                        <span>👁️ 4,847,291 צפיות</span>
+                        <span>💬 384,520 תגובות</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 2 -->
+            <article class="bg-white rounded-lg shadow-2xl overflow-hidden border-4 border-blue-600">
+                <div class="bg-purple-700 text-white px-4 py-2 font-bold text-xl">🛡️ הגנה!</div>
+                <div class="p-6">
+                    <h2 class="text-3xl font-bold mb-3 text-purple-700">🍰 שקר! מארי מעולם לא אמרה "שיאכלו עוגה"! (תעמולה מזויפת!)</h2>
+                    <p class="text-gray-700 mb-4"><strong>תעמולת שקרים!</strong> היסטוריונים הוכיחו שמארי אנטואנט מעולם לא אמרה את המשפט הזה! זו תעמולה מזויפת שיצרו המהפכנים כדי להשמיץ מלכה תמימה וצדקנית! הם הפיצו fake news מהמאה ה-18 כדי להצדיק את הפשעים שלהם! מארי הייתה מלכה טובה שדאגה לעם! 👑✨</p>
+                    <div class="flex justify-between items-center text-sm text-gray-500 mb-3">
+                        <span>👁️ 5,234,890 צפיות</span>
+                        <span>💬 356,789 תגובות</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 3 -->
+            <article class="bg-white rounded-lg shadow-2xl overflow-hidden border-4 border-blue-600">
+                <div class="bg-red-700 text-white px-4 py-2 font-bold text-xl">⚠️ אלימות!</div>
+                <div class="p-6">
+                    <h2 class="text-3xl font-bold mb-3 text-red-700">🏰 טרור בבסטיליה! המון פושעים רוצח חיילים תמימים! (זוועות!)</h2>
+                    <p class="text-gray-700 mb-4"><strong>טרור המונים!</strong> המון פושעים פרץ למבצר הבסטיליה ורצח חיילים תמימים שרק עשו את עבודתם! מצאו רק 7 אסירים?! זה לא מאבק חירות - זה טרור המונים! הם פתחו בגל של אנרכיה ואלימות שהרס את צרפת היפה! איזה פשע נורא! 😢⚠️</p>
+                    <div class="flex justify-between items-center text-sm text-gray-500 mb-3">
+                        <span>👁️ 6,456,891 צפיות</span>
+                        <span>💬 434,567 תגובות</span>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- Footer Ad -->
+    <div class="banner-ad mt-8">
+        👑 תמכו בשיקום המלוכה! תרומה עכשיו למען עתיד טוב יותר! 👑
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-6 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-2">👑 יחי המלך! 👑</p>
+            <p class="text-sm">© 1793 האמת על המהפכה. להגנה על המסורת והסדר!</p>
+            <p class="text-xs mt-2"><a href="index.html" class="text-yellow-300 hover:underline">חזור לגרסה הרגילה</a> | <a href="index-pro.html" class="text-yellow-300 hover:underline">גרסה פרו-מהפכנית</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // List of ad images - automatically loads from ads folder
+        const adImages = [];
+        
+        // Function to load ad images from folder
+        async function loadAdImages() {
+            // Try to load images with common names
+            const possibleAds = [
+                'ads/ad1.jpg', 'ads/ad1.jpeg', 'ads/ad1.png',
+                'ads/ad2.jpg', 'ads/ad2.jpeg', 'ads/ad2.png',
+                'ads/ad3.jpg', 'ads/ad3.jpeg', 'ads/ad3.png',
+                'ads/ad4.jpg', 'ads/ad4.jpeg', 'ads/ad4.png',
+                'ads/ad5.jpg', 'ads/ad5.jpeg', 'ads/ad5.png',
+                'ads/monarchy-ad.jpg', 'ads/monarchy-ad.png',
+                'ads/subscribe.jpg', 'ads/subscribe.png',
+                'ads/promo.jpg', 'ads/promo.png'
+            ];
+            
+            for (let adPath of possibleAds) {
+                try {
+                    const response = await fetch(adPath, { method: 'HEAD' });
+                    if (response.ok) {
+                        adImages.push(adPath);
+                    }
+                } catch (e) {
+                    // Image doesn't exist, skip
+                }
+            }
+            
+            // If no images found, use a placeholder
+            if (adImages.length === 0) {
+                console.log('No ad images found in ads folder. Add .jpg, .jpeg, or .png files to the ads/ folder.');
+            }
+        }
+        
+        // Popup Ad Logic
+        let popupShown = false;
+        
+        function showAd() {
+            if (!popupShown && adImages.length > 0) {
+                // Select random ad image
+                const randomAd = adImages[Math.floor(Math.random() * adImages.length)];
+                document.getElementById('adImage').src = randomAd;
+                
+                document.getElementById('popupOverlay').style.display = 'block';
+                document.getElementById('popupAd').style.display = 'block';
+                popupShown = true;
+            }
+        }
+        
+        function closeAd() {
+            document.getElementById('popupOverlay').style.display = 'none';
+            document.getElementById('popupAd').style.display = 'none';
+        }
+        
+        // Initialize ads on page load
+        loadAdImages().then(() => {
+            // Show popup after 3 seconds
+            setTimeout(showAd, 3000);
+        });
+        
+        // Show popup on scroll
+        let scrollCount = 0;
+        window.addEventListener('scroll', function() {
+            scrollCount++;
+            if (scrollCount > 50 && !popupShown) {
+                showAd();
+            }
+        });
+        
+        // Random popup every 30 seconds
+        setInterval(function() {
+            if (Math.random() > 0.5 && adImages.length > 0) {
+                popupShown = false; // Allow showing again
+                showAd();
+            }
+        }, 30000);
+    </script>
+    
+    <script src="gazette-scripts.js"></script>
+</body>
+</html>
