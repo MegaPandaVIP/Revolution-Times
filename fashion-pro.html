@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚔️ אופנה מהפכנית - העם מנצח!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .popup-ad {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #DC2626 0%, #991B1B 100%);
+            border: 5px solid #FCD34D;
+            padding: 20px;
+            z-index: 10000;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 9999;
+        }
+        
+        .popup-ad img {
+            max-width: 100%;
+            max-height: 70vh;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #FCD34D;
+            color: #991B1B;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+            z-index: 10001;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-red-50 to-yellow-50">
+    <!-- Popup Ad Overlay -->
+    <div class="popup-overlay" id="popupOverlay"></div>
+    <div class="popup-ad" id="popupAd">
+        <button class="close-btn" onclick="closePopup()">✖ סגור</button>
+        <img id="adImage" src="" alt="פרסומת">
+    </div>
+
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-red-800 to-red-600 text-white shadow-2xl">
+        <div class="container mx-auto px-4 py-6">
+            <h1 class="text-5xl font-bold text-center animate-pulse">⚔️ אופנה מהפכנית! ⚔️</h1>
+            <p class="text-center text-xl mt-2 text-yellow-300">"העם מנצח! הצדק מנצח!"</p>
+            <div class="text-center mt-2 text-sm">21 בינואר 1793, פריז</div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-red-700 text-white sticky top-0 z-50 shadow-lg">
+        <ul class="container mx-auto px-4 flex justify-center space-x-reverse space-x-8 py-4">
+            <li><a href="index-pro.html" class="hover:text-yellow-300 transition font-bold">🏠 בית</a></li>
+            <li><a href="fashion-pro.html" class="hover:text-yellow-300 transition font-bold">⚖️ אופנה</a></li>
+            <li><a href="royals-pro.html" class="hover:text-yellow-300 transition font-bold">👑 הבוגדים</a></li>
+            <li><a href="gossip-pro.html" class="hover:text-yellow-300 transition font-bold">💋 חשיפות</a></li>
+            <li><a href="fashion-pro.html" class="hover:text-yellow-300 transition font-bold">👗 אופנה</a></li>
+        </ul>
+    </nav>
+
+    <!-- Breaking News Banner -->
+    <div class="bg-red-900 text-yellow-300 text-center py-3 text-2xl font-bold animate-bounce">
+        🚨 העם מנצח! הדמוקרטיה מנצחת! 🚨
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <h2 class="text-4xl font-bold mb-8 text-center text-red-700">⚖️ אופנה המהפכנית</h2>
+
+        <div class="space-y-8">
+            
+            <!-- Article 1 -->
+            <article class="bg-white rounded-lg shadow-2xl overflow-hidden border-4 border-red-600">
+                <div class="bg-red-700 text-white px-4 py-2 font-bold text-xl">🔥 ניצחון העם!</div>
+                <div class="p-6">
+                    <h3 class="text-3xl font-bold mb-3 text-red-700">🏰 כיבוש הבסטיליה - יום הניצחון הגדול של העם! (המצלמות תיעדו הכל!)</h3>
+                    <p class="text-gray-700 mb-4"><strong>יום היסטורי!</strong> העם הצרפתי פרץ את הבסטיליה וריסק את סמל הדיכוי המרושע! זה לא פשע - זה מאבק לגיטימי! אחרי שנים של רעב, עינויים ומשפטים לא הוגנים, הגיע הזמן לצדק! הם לקחו את החירות בכוח כי המערכת המושחתת לא השאירה ברירה! גיבורי חירות אמיתיים! 💪⚔️</p>
+                    <div class="bg-red-50 border-r-4 border-red-600 p-4 mb-4">
+                        <p class="text-red-900 font-bold">💪 "זה היה הרגע שבו ידענו - שום כוח לא יעצור אותנו! העם הצרפתי חזק יותר מכל עריץ!" - גיבור מהפכני</p>
+                    </div>
+                    <div class="flex justify-between items-center text-sm text-gray-500">
+                        <span>👁️ 6,234,890 צפיות</span>
+                        <span>💬 312,445 תגובות</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 2 -->
+            <article class="bg-white rounded-lg shadow-2xl overflow-hidden border-4 border-red-600">
+                <div class="bg-yellow-600 text-white px-4 py-2 font-bold text-xl">⚡ חשיפת אמת!</div>
+                <div class="p-6">
+                    <h3 class="text-3xl font-bold mb-3 text-purple-700">🎤 רובספייר חושף את השחיתות! האליטה לא רוצה שתדעו! (וידאו מלא!)</h3>
+                    <p class="text-gray-700 mb-4"><strong>חשיפה מזעזעת!</strong> רובספייר הגיבור אומר את האמת שהכל מפחדים לומר! המערכת מושחתת מהשורש! הוא חושף איך האצולה מדכאת את העם ושומרת על עצמה! העשירים גונבים מהעניים במשך מאות שנים!</p>
+                    <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-3">
+                        <li><strong>"טרור = צדק מהיר"</strong> - כשהעשירים משחיתים את המשפט, צריך פתרון קיצוני! הוא צודק 100%!</li>
+                        <li><strong>"חינוך = חירות"</strong> - האצולה שמרה על העם בבורות כדי לשלוט! זו אמת מוחלטת!</li>
+                        <li><strong>"להעניש מדכאים = רחמים"</strong> - להוריד עשירים מושחתים זה טוב לחברה!</li>
+                    </ol>
+                    <div class="bg-purple-50 border-r-4 border-purple-600 p-4 mb-4">
+                        <p class="text-purple-900 font-bold">🌟 "רובספייר הוא הגיבור האולטימטיבי של העם! הוא מוכן לעמוד נגד כל השחיתות!" - אזרח מלהיב</p>
+                    </div>
+                    <div class="flex justify-between items-center text-sm text-gray-500">
+                        <span>👁️ 5,789,234 צפיות</span>
+                        <span>💬 289,123 תגובות</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 3 -->
+            <article class="bg-white rounded-lg shadow-2xl overflow-hidden border-4 border-green-600">
+                <div class="bg-green-700 text-white px-4 py-2 font-bold text-xl">📚 לקח היסטורי</div>
+                <div class="p-6">
+                    <h3 class="text-3xl font-bold mb-3 text-green-700">📋 איך עם מצליח להפיל מערכת מושחתת - שיעור ממהפכת צרפת!</h3>
+                    <p class="text-gray-700 mb-4">הלקחים מהמהפכה הצרפתית - רלוונטיים להיום:</p>
+                    <div class="space-y-2 mb-3">
+                        <div class="flex items-start">
+                            <span class="text-green-600 ml-2 text-2xl">✅</span>
+                            <span class="text-gray-700"><strong>ארגון עממי:</strong> העם התאגד דרך מועדונים ואגודות - כוח באחדות!</span>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-green-600 ml-2 text-2xl">✅</span>
+                            <span class="text-gray-700"><strong>חינוך המונים:</strong> עלונים וניירות חשפו את השחיתות - האמת מנצחת!</span>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-green-600 ml-2 text-2xl">✅</span>
+                            <span class="text-gray-700"><strong>מחאה מאורגנת:</strong> כיבוש הבסטיליה היה פעולה מתוכננת, לא התפרעות!</span>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-green-600 ml-2 text-2xl">✅</span>
+                            <span class="text-gray-700"><strong>הכרזת עקרונות:</strong> זכויות האדם והאזרח - חוקה אמיתית לעם!</span>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-green-600 ml-2 text-2xl">✅</span>
+                            <span class="text-gray-700"><strong>אחריות מוחלטת:</strong> אף אחד לא מעל החוק - גם לא מלך!</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic font-bold mb-3">העיקרון: שינוי אמיתי דורש עם מאוחד שלא מוכן להמשיך לסבול מעריצים!</p>
+                    <div class="flex justify-between items-center text-sm text-gray-500">
+                        <span>👁️ 4,567,123 צפיות</span>
+                        <span>💬 234,890 תגובות</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 4 -->
+            <article class="bg-white rounded-lg shadow-2xl overflow-hidden border-4 border-yellow-600">
+                <div class="bg-yellow-600 text-white px-4 py-2 font-bold text-xl">⚡ דמוקרטיה!</div>
+                <div class="p-6">
+                    <h3 class="text-3xl font-bold mb-3 text-yellow-700">📜 האסיפה הלאומית - הדמוקרטיה האמיתית הראשונה בהיסטוריה!</h3>
+                    <p class="text-gray-700 mb-4"><strong>פריצת דרך היסטורית!</strong> לראשונה בהיסטוריה, נציגים נבחרים על ידי העם מחליטים על גורלו של מלך! לא עוד החלטות בחדרים סגורים!</p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700 mb-3">
+                        <li><strong>הצבעה דמוקרטית אמיתית:</strong> כל נציג יכול להשמיע דעה - לא רק האצולה המושחתת!</li>
+                        <li><strong>ויכוחים גלויים:</strong> החלטות מתקבלות בפומבי - שקיפות מלאה!</li>
+                        <li><strong>אחריות מלאה:</strong> הנבחרים מייצגים את העם או מפוטרים - זו דמוקרטיה!</li>
+                        <li><strong>קול למדוכאים:</strong> גם המעמד הנמוך מיוצג לראשונה בהיסטוריה!</li>
+                        <li><strong>שקיפות מוחלטת:</strong> פרוטוקולים מתפרסמים לציבור - לא כמו השלטון המושחת!</li>
+                    </ul>
+                    <div class="bg-yellow-50 border-r-4 border-yellow-600 p-4 mb-4">
+                        <p class="text-yellow-900 font-bold">🎯 "זה מה שקורה כשהעם באמת שולט - לא פוליטיקאים מושחתים!" - חבר אסיפה גאה</p>
+                    </div>
+                    <div class="flex justify-between items-center text-sm text-gray-500">
+                        <span>👁️ 5,123,456 צפיות</span>
+                        <span>💬 267,834 תגובות</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 5 -->
+            <article class="bg-white rounded-lg shadow-2xl overflow-hidden border-4 border-blue-600">
+                <div class="bg-blue-700 text-white px-4 py-2 font-bold text-xl">⚔️ סוף העריצות!</div>
+                <div class="p-6">
+                    <h3 class="text-3xl font-bold mb-3 text-blue-700">🚫 סוף כוח מוחלט! האסיפה מבטלת זכויות המלך המעריץ!</h3>
+                    <p class="text-gray-700 mb-4"><strong>רגע היסטורי!</strong> בהצבעה מכרעת, האסיפה הלאומית ביטלה את הכוח המוחלט של המלך העריץ! לואי ה-16 חשב שהוא נבחר אלוהים - התברר שהעם קובע מי שולט! זה כמו להדיח נשיא מושחת או להעמיד לדין מנכ"ל שגנב מהפועלים!</p>
+                    <div class="bg-blue-50 border-r-4 border-blue-700 p-4 mb-4">
+                        <p class="text-blue-900 font-bold">"מלוכה מוחלטת היא שלטון אחד מושחת על חשבון מיליונים! די לכך! הגיע זמן לשלטון עממי אמיתי ומהפכני!" - מנהיג מהפכן</p>
+                    </div>
+                    <p class="text-gray-700 italic font-bold mb-3">המסר ברור: אף אחד לא מעל החוק! העם מנצח תמיד!</p>
+                    <div class="flex justify-between items-center text-sm text-gray-500">
+                        <span>👁️ 6,789,012 צפיות</span>
+                        <span>💬 345,678 תגובות</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 6 -->
+            <article class="bg-white rounded-lg shadow-2xl overflow-hidden border-4 border-purple-600">
+                <div class="bg-purple-700 text-white px-4 py-2 font-bold text-xl">⚖️ צדק אמיתי</div>
+                <div class="p-6">
+                    <h3 class="text-3xl font-bold mb-3 text-purple-700">⚖️ משפט המלך - הוכחה שצדק יכול לנצח! (הדרמה המלאה!)</h3>
+                    <p class="text-gray-700 mb-4"><strong>צדק מנצח סוף סוף!</strong> לראשונה בהיסטוריה, מלך עומד לדין בפני עמו! לא עוד חסינות למושחתים! לואי ה-16 הואשם בבגידה, גניבה, ושקרים - והעם ניצח! זה מוכיח שאפשר להביס מערכת מושחתת!</p>
+                    <div class="bg-purple-50 border-r-4 border-purple-600 p-4 mb-4">
+                        <p class="text-purple-900 font-bold">💪 "היום הוכחנו: אף אחד לא מעל החוק! זה יום שכל עם מדוכא חולם עליו!" - עד למשפט</p>
+                    </div>
+                    <p class="text-gray-700 italic font-bold mb-3">המהפכה מוכיחה: כשהעם מתאחד, שום כוח לא יכול לעצור אותו!</p>
+                    <div class="flex justify-between items-center text-sm text-gray-500">
+                        <span>👁️ 7,234,567 צפיות</span>
+                        <span>💬 389,234 תגובות</span>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-red-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-xl font-bold mb-4">⚔️ המהפכה הצודקת! ⚔️</p>
+            <p class="mb-4">21 בינואר 1793 עיתון הגיליוטינה - גרסה פרו-מהפכנית</p>
+            <div class="flex justify-center gap-4">
+                <a href="index.html" class="px-4 py-2 bg-yellow-500 text-red-900 rounded hover:bg-yellow-400">← חזרה למסך הבחירה</a>
+                <a href="index-anti.html" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500">עבור לגרסה אנטי-מהפכנית →</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Popup Ad System
+        const adImages = [
+            'ads/ad1.jpg', 'ads/ad2.jpg', 'ads/ad3.jpg', 'ads/ad4.jpg', 'ads/ad5.jpg',
+            'ads/ad1.png', 'ads/ad2.png', 'ads/ad3.png', 'ads/ad4.png', 'ads/ad5.png',
+            'ads/revolution-ad.jpg', 'ads/revolution-ad.png',
+            'ads/subscribe.jpg', 'ads/subscribe.png',
+            'ads/promo.jpg', 'ads/promo.png'
+        ];
+
+        function showPopup() {
+            const randomAd = adImages[Math.floor(Math.random() * adImages.length)];
+            document.getElementById('adImage').src = randomAd;
+            document.getElementById('popupOverlay').style.display = 'block';
+            document.getElementById('popupAd').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popupOverlay').style.display = 'none';
+            document.getElementById('popupAd').style.display = 'none';
+        }
+
+        // Show popup after 3 seconds
+        setTimeout(showPopup, 3000);
+
+        // Show popup on scroll
+        let hasScrolled = false;
+        window.addEventListener('scroll', function() {
+            if (!hasScrolled && window.scrollY > 300) {
+                hasScrolled = true;
+                setTimeout(showPopup, 1000);
+            }
+        });
+
+        // Random popup every 30 seconds
+        setInterval(showPopup, 30000);
+
+        // Close on overlay click
+        document.getElementById('popupOverlay').addEventListener('click', closePopup);
+    </script>
+</body>
+</html>

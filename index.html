@@ -3,205 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>עיתון הגיליוטינה - חדשות מהפכניות טריות</title>
+    <title>⚔️ עיתון הגיליוטינה - בחר גרסה</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'revolutionary-red': '#8B0000',
-                        'royal-blue': '#000080',
-                        'parchment': '#F4E4C1',
-                    }
-                }
-            }
+    <style>
+        body {
+            background: linear-gradient(135deg, #1E3A8A 0%, #DC2626 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-    </script>
+        
+        .choice-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .choice-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+    </style>
 </head>
-<body class="bg-parchment">
-    <!-- Header -->
-    <header class="bg-revolutionary-red text-white shadow-lg">
-        <div class="container mx-auto px-4 py-6">
-            <h1 class="text-5xl font-bold text-center mb-2">⚔️ עיתון הגיליוטינה ⚔️</h1>
-            <p class="text-center text-xl italic">"מסובבים ועורפים ראשים מאז 1759"</p>
-            <div class="text-center mt-2 text-sm" id="current-time">21 בינואר 1793, פריז</div>
+<body>
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-6xl font-bold text-white mb-4 pulse">⚔️ עיתון הגיליוטינה ⚔️</h1>
+            <p class="text-2xl text-yellow-300 mb-2">"מסובבים ועורפים ראשים מאז 1759"</p>
+            <p class="text-xl text-white">21 בינואר 1793, פריז</p>
         </div>
-    </header>
 
-    <!-- Navigation -->
-    <nav class="bg-royal-blue text-white sticky top-0 z-50 shadow-md">
-        <div class="container mx-auto px-4">
-            <ul class="flex flex-wrap justify-center space-x-reverse space-x-2 py-3">
-                <li><a href="index.html" class="px-4 py-2 hover:bg-white hover:text-royal-blue rounded transition font-bold">🏠 בית</a></li>
-                <li><a href="politics.html" class="px-4 py-2 hover:bg-white hover:text-royal-blue rounded transition">⚖️ פוליטיקה</a></li>
-                <li><a href="royals.html" class="px-4 py-2 hover:bg-white hover:text-royal-blue rounded transition">👑 בית המלוכה</a></li>
-                <li><a href="gossip.html" class="px-4 py-2 hover:bg-white hover:text-royal-blue rounded transition">💋 רכילות</a></li>
-                <li><a href="fashion.html" class="px-4 py-2 hover:bg-white hover:text-royal-blue rounded transition">👗 אופנה</a></li>
-            </ul>
+        <!-- Choice Section -->
+        <div class="text-center mb-8">
+            <h2 class="text-4xl font-bold text-white mb-4">🔥 בחר את הצד שלך! 🔥</h2>
+            <p class="text-xl text-yellow-300">שתי גרסאות קיצוניות - איזו אמת אתה בוחר?</p>
         </div>
-    </nav>
 
-    <!-- Breaking News Banner -->
-    <div class="bg-red-600 text-white py-3 overflow-hidden">
-        <div class="animate-pulse text-center">
-            <span class="text-2xl font-bold">🚨 חדש: לואי ה-16 הוצא להורג! 🚨</span>
+        <!-- Two Options -->
+        <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            
+            <!-- Pro-Revolution Version -->
+            <a href="index-pro.html" class="choice-card">
+                <div class="bg-gradient-to-br from-red-900 to-red-600 rounded-xl shadow-2xl p-8 border-4 border-yellow-400">
+                    <div class="text-center">
+                        <div class="text-8xl mb-4">⚔️</div>
+                        <h3 class="text-4xl font-bold text-yellow-300 mb-4">המהפכה הצודקת!</h3>
+                        <p class="text-2xl text-white mb-6">גרסה פרו-מהפכנית</p>
+                        <div class="bg-red-800 p-4 rounded-lg mb-6">
+                            <p class="text-yellow-300 font-bold text-xl">✊ העם מנצח!</p>
+                            <p class="text-white text-lg mt-2">סוף סוף צדק! הבוגדים שילמו!</p>
+                        </div>
+                        <ul class="text-right text-white space-y-2 mb-6">
+                            <li>🔥 חשיפות על שחיתות המלוכה</li>
+                            <li>💪 כוח העם והמהפכה</li>
+                            <li>⚖️ צדק לעניים והנדכאים</li>
+                            <li>🎯 הבוגדים קיבלו מה שמגיע להם</li>
+                        </ul>
+                        <div class="bg-yellow-400 text-red-900 px-8 py-4 rounded-lg font-bold text-2xl hover:bg-yellow-300 transition">
+                            כנס לגרסה המהפכנית! →
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Anti-Revolution Version -->
+            <a href="index-anti.html" class="choice-card">
+                <div class="bg-gradient-to-br from-blue-900 to-blue-600 rounded-xl shadow-2xl p-8 border-4 border-yellow-400">
+                    <div class="text-center">
+                        <div class="text-8xl mb-4">👑</div>
+                        <h3 class="text-4xl font-bold text-yellow-300 mb-4">האמת על המהפכה!</h3>
+                        <p class="text-2xl text-white mb-6">גרסה אנטי-מהפכנית</p>
+                        <div class="bg-blue-800 p-4 rounded-lg mb-6">
+                            <p class="text-yellow-300 font-bold text-xl">👑 יחי המלך!</p>
+                            <p class="text-white text-lg mt-2">רצח פוליטי! טרור המונים!</p>
+                        </div>
+                        <ul class="text-right text-white space-y-2 mb-6">
+                            <li>😢 הגנה על המלוכה הטובה</li>
+                            <li>🛡️ חשיפת שקרי המהפכנים</li>
+                            <li>⚠️ טרור והרס הסדר</li>
+                            <li>💔 רצח מלך תמים ומשפחתו</li>
+                        </ul>
+                        <div class="bg-yellow-400 text-blue-900 px-8 py-4 rounded-lg font-bold text-2xl hover:bg-yellow-300 transition">
+                            כנס לגרסה המלכותית! →
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+
+        <!-- Info Section -->
+        <div class="text-center mt-12 text-white">
+            <p class="text-xl mb-4">⚠️ שתי גרסאות קיצוניות - כל אחת מציגה את האירועים ההיסטוריים מנקודת מבט שונה לחלוטין!</p>
+            <p class="text-lg text-yellow-300">📚 מושלם לפרויקט היסטוריה - למד על התעמולה והמניפולציה התקשורתית במהפכה הצרפתית</p>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center mt-12 text-white text-sm">
+            <p>© 1793 עיתון הגיליוטינה</p>
+            <p class="mt-2">כל הזכויות שמורות. כל הדמיון למקורות אמיתיים - תמים ומקרי.</p>
         </div>
     </div>
-
-    <!-- Main Content -->
-    <main class="container mx-auto px-4 py-8">
-        <!-- Featured Articles Grid -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            <!-- Article 1: Louis XVI Execution -->
-            <article class="bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden">
-                <div class="bg-red-700 text-white px-4 py-2 font-bold">חדשות דחופות</div>
-                <div class="p-6">
-                    <h2 class="text-2xl font-bold mb-3 text-red-700">👑 מלך צרפת איבד את הראש - במובן הממשי!</h2>
-                    <p class="text-gray-700 mb-4">לואי ה-16, מלך צרפת לשעבר, הוצא להורג היום בכיכר המהפכה. האם זה סוף המלוכה? אלפים התאספו לחזות בהיסטוריה מתרחשת. מארי אנטואנט הגיבה: "אמרתי לו להפסיק עם העניין הזה של מלוכה מוחלטת".</p>
-                    <div class="flex justify-between items-center text-sm text-gray-500 mb-3">
-                        <span>👁️ <span class="view-count">12,847</span> צפיות</span>
-                        <span>💬 342 תגובות</span>
-                    </div>
-                    <button class="like-button w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition flex items-center justify-center gap-2" data-article-id="1">
-                        <span class="like-icon">👍</span>
-                        <span class="like-text">אהבתי</span>
-                        <span class="like-count">(0)</span>
-                    </button>
-                </div>
-            </article>
-
-            <!-- Article 2: Marie Antoinette Cake Scandal -->
-            <article class="bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden">
-                <div class="bg-yellow-600 text-white px-4 py-2 font-bold">טרנדינג</div>
-                <div class="p-6">
-                    <h2 class="text-2xl font-bold mb-3 text-yellow-700">🍰 "שיאכלו עוגה" - האם המלכה באמת אמרה את זה?</h2>
-                    <p class="text-gray-700 mb-4">ראיות חדשות מצביעות על כך שמארי אנטואנט מעולם לא אמרה את הציטוט המפורסם. בודקי העובדות שלנו מגלים שהיא בעצם הזמינה קרואסונים. המלכה מגיבה: "חדשות מזויפות! אני רק אוכלת בריוש בימי שלישי".</p>
-                    <div class="flex justify-between items-center text-sm text-gray-500 mb-3">
-                        <span>👁️ <span class="view-count">9,234</span> צפיות</span>
-                        <span>💬 567 תגובות</span>
-                    </div>
-                    <button class="like-button w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition flex items-center justify-center gap-2" data-article-id="2">
-                        <span class="like-icon">👍</span>
-                        <span class="like-text">אהבתי</span>
-                        <span class="like-count">(0)</span>
-                    </button>
-                </div>
-            </article>
-
-            <!-- Article 3: Bastille Storming -->
-            <article class="bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden">
-                <div class="bg-blue-700 text-white px-4 py-2 font-bold">כיסוי חי</div>
-                <div class="p-6">
-                    <h2 class="text-2xl font-bold mb-3 text-blue-700">🏰 הבסטיליה נכבש: בריחה אפית מהכלא!</h2>
-                    <p class="text-gray-700 mb-4">אזרחים פורצים למבצר הבסטיליה במה שהיסטוריונים מכנים "הפרעת זעם צרפתית אולטימטיבית". נמצאו רק 7 אסירים בפנים. הקהל מעט מאוכזב אבל הסמליות היא מה שחשוב!</p>
-                    <div class="flex justify-between items-center text-sm text-gray-500 mb-3">
-                        <span>👁️ <span class="view-count">15,678</span> צפיות</span>
-                        <span>💬 891 תגובות</span>
-                    </div>
-                    <button class="like-button w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition flex items-center justify-center gap-2" data-article-id="3">
-                        <span class="like-icon">👍</span>
-                        <span class="like-text">אהבתי</span>
-                        <span class="like-count">(0)</span>
-                    </button>
-                </div>
-            </article>
-
-            <!-- Article 4: Palace Love Triangle -->
-            <article class="bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden">
-                <div class="bg-pink-600 text-white px-4 py-2 font-bold">בלעדי</div>
-                <div class="p-6">
-                    <h2 class="text-2xl font-bold mb-3 text-pink-700">💕 משולש אהבה בארמון גורם למשבר פוליטי</h2>
-                    <p class="text-gray-700 mb-4">שערורייה מזעזעת את הארמון כאשר רומן בין הרוזן פרזן למארי אנטואנט מאיים על היחסים צרפת-שוודיה. המלך לואי לכאורה "עסוק מדי במנעולים" מכדי לשים לב. כל הדרמה בפנים!</p>
-                    <div class="flex justify-between items-center text-sm text-gray-500 mb-3">
-                        <span>👁️ <span class="view-count">8,456</span> צפיות</span>
-                        <span>💬 1,234 תגובות</span>
-                    </div>
-                    <button class="like-button w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition flex items-center justify-center gap-2" data-article-id="4">
-                        <span class="like-icon">👍</span>
-                        <span class="like-text">אהבתי</span>
-                        <span class="like-count">(0)</span>
-                    </button>
-                </div>
-            </article>
-
-            <!-- Article 5: Robespierre Time Traveler -->
-            <article class="bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden">
-                <div class="bg-purple-700 text-white px-4 py-2 font-bold">קונספירציה</div>
-                <div class="p-6">
-                    <h2 class="text-2xl font-bold mb-3 text-purple-700">👽 האם רובספייר הוא נוסע בזמן?</h2>
-                    <p class="text-gray-700 mb-4">עדים טוענים שרובספייר חזה את הגיליוטינה. "הוא כל הזמן מדבר על 'דמוקרטיה' ו'זכויות אדם' - מושגים שלא יומצאו במשך שנים!" אומר אזרח מודאג. הוא מכחיש את כל ההאשמות.</p>
-                    <div class="flex justify-between items-center text-sm text-gray-500 mb-3">
-                        <span>👁️ <span class="view-count">6,789</span> צפיות</span>
-                        <span>💬 445 תגובות</span>
-                    </div>
-                    <button class="like-button w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition flex items-center justify-center gap-2" data-article-id="5">
-                        <span class="like-icon">👍</span>
-                        <span class="like-text">אהבתי</span>
-                        <span class="like-count">(0)</span>
-                    </button>
-                </div>
-            </article>
-
-            <!-- Article 6: Guillotine Self-Care -->
-            <article class="bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden">
-                <div class="bg-green-700 text-white px-4 py-2 font-bold">דעה</div>
-                <div class="p-6">
-                    <h2 class="text-2xl font-bold mb-3 text-green-700">🧘 גיליוטינה וטיפול עצמי: התאמה מושלמת?</h2>
-                    <p class="text-gray-700 mb-4">מאמר דעה טוען שצפייה בהוצאות להורג היא המדיטציה החדשה. "זה באמת שם את הבעיות שלך בפרספקטיבה," אומרת משפיענית בריאות מקומית. המבקרים קוראים לזה "קצת יותר מדי".</p>
-                    <div class="flex justify-between items-center text-sm text-gray-500 mb-3">
-                        <span>👁️ <span class="view-count">4,567</span> צפיות</span>
-                        <span>💬 223 תגובות</span>
-                    </div>
-                    <button class="like-button w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition flex items-center justify-center gap-2" data-article-id="6">
-                        <span class="like-icon">👍</span>
-                        <span class="like-text">אהבתי</span>
-                        <span class="like-count">(0)</span>
-                    </button>
-                </div>
-            </article>
-        </div>
-
-        <!-- Comments Section -->
-        <section class="bg-white rounded-lg shadow-lg p-6 mb-8">
-            <h3 class="text-3xl font-bold mb-4 text-gray-800">💬 תגובות קוראים</h3>
-            <form id="comment-form" class="mb-6">
-                <div class="mb-4">
-                    <label for="comment-name" class="block text-gray-700 font-bold mb-2">שם:</label>
-                    <input type="text" id="comment-name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-revolutionary-red" placeholder="שם אזרח" required>
-                </div>
-                <div class="mb-4">
-                    <label for="comment-text" class="block text-gray-700 font-bold mb-2">תגובה:</label>
-                    <textarea id="comment-text" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-revolutionary-red" placeholder="שתף את מחשבותיך המהפכניות..." required></textarea>
-                </div>
-                <button type="submit" class="bg-revolutionary-red text-white px-6 py-2 rounded-lg hover:bg-red-800 transition font-bold">שלח תגובה</button>
-            </form>
-            <div id="comments-display" class="space-y-4">
-                <!-- Comments will be displayed here -->
-            </div>
-        </section>
-
-        <!-- Newsletter Signup -->
-        <section class="bg-royal-blue text-white rounded-lg shadow-lg p-8 mb-8">
-            <h3 class="text-3xl font-bold mb-4 text-center">📰 הירשם לניוזלטר שלנו!</h3>
-            <p class="text-center mb-6">קבל את ההוצאות להורג האחרונות ישירות לפתח ביתך!</p>
-            <form class="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto">
-                <input type="email" placeholder="your.email@revolution.fr" class="flex-1 px-4 py-3 rounded-lg text-gray-800 focus:outline-none">
-                <button type="submit" class="bg-revolutionary-red hover:bg-red-800 px-6 py-3 rounded-lg font-bold transition">הירשם</button>
-            </form>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-2xl font-bold mb-2">⚔️ מונה הגיליוטינה ⚔️</p>
-            <p class="text-4xl font-bold text-red-500 mb-4" id="guillotine-counter">0</p>
-            <p class="text-sm text-gray-400 mb-4">ראשים שהתגלגלו היום</p>
-            <p class="text-xs text-gray-500">© 1793 עיתון הגיליוטינה. כל הזכויות שמורות. אף מלך לא נפגע בהכנת האתר הזה (זה שקר).</p>
-        </div>
-    </footer>
-
-    <script src="gazette-scripts.js"></script>
 </body>
 </html>
